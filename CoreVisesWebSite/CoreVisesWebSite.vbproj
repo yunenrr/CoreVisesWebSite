@@ -150,6 +150,7 @@
     <Content Include="images\grid_view.png" />
     <Content Include="images\img-sprite.png" />
     <Content Include="images\list_view.png" />
+    <Content Include="images\Logo.png" />
     <Content Include="images\m1.jpg" />
     <Content Include="images\m2.jpg" />
     <Content Include="images\m3.jpg" />
