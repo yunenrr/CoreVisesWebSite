@@ -11,6 +11,11 @@
                 logInf.Text = "Login"
             End If
         End If
+
+        If CType(Session("condition"), Integer) = 0 Then
+            logInf.NavigateUrl = "register.html"
+            logInf.Text = "Login"
+        End If
     End Sub
 
 End Class

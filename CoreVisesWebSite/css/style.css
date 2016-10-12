@@ -830,14 +830,14 @@ a.create:hover, .account-top input[type="submit"]:hover, .register-but form inpu
 	margin: 10px 0;
 }
 .register-top-grid span, .register-bottom-grid span {
-	color:#999;
+	color:black;
 	font-size: 0.85em;
 	padding-bottom: 0.2em;
 	display: block;
 	text-transform: uppercase;
 }
 .register-top-grid input[type="text"], .register-bottom-grid input[type="password"] {
-	border: 1px solid #EEE;
+	border: 1px solid black;
 	outline-color:#FF5B36;
 	width: 96%;
 	font-size: 1em;
