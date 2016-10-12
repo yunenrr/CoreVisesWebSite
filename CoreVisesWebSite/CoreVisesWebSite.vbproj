@@ -133,7 +133,6 @@
     <Content Include="css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="images\2nd-day.jpg" />
-    <Content Include="images\3.jpg" />
     <Content Include="images\arrow2.gif" />
     <Content Include="images\bag.png" />
     <Content Include="images\close_1.png" />
@@ -161,6 +160,7 @@
     <Content Include="images\p1.jpg" />
     <Content Include="images\p2.jpg" />
     <Content Include="images\p3.jpg" />
+    <Content Include="images\3.jpg" />
     <Content Include="images\s1.jpg" />
     <Content Include="images\s2.jpg" />
     <Content Include="images\s3.jpg" />
@@ -172,7 +172,7 @@
     <Content Include="images\w3.jpg" />
     <Content Include="images\weekday1.jpg" />
     <Content Include="images\wishlist.png" />
-    <Content Include="index.html" />
+    <Content Include="index.aspx" />
     <Content Include="js\cbpViewModeSwitch.js" />
     <Content Include="js\classie.js" />
     <Content Include="js\classie1.js" />
@@ -194,6 +194,13 @@
   <ItemGroup>
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.designer.vb">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.vb">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
