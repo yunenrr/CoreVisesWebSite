@@ -183,10 +183,9 @@
     <Content Include="js\megamenu.js" />
     <Content Include="js\simpleCart.min.js" />
     <Content Include="js\uisearch.js" />
-    <Content Include="login.html" />
     <Content Include="men.html" />
+    <Content Include="Presentation\login.aspx" />
     <Content Include="Presentation\register.aspx" />
-    <Content Include="register.html" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="single.html" />
@@ -221,6 +220,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Presentation\login.aspx.designer.vb">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\login.aspx.vb">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Presentation\register.aspx.designer.vb">
       <DependentUpon>register.aspx</DependentUpon>

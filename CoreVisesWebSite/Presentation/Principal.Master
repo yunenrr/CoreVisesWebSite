@@ -67,8 +67,8 @@
                             </div>
                         </div>
 				        <!----search-scripts---->
-                        <script src="js/classie1.js"></script>
-				        <script src="js/uisearch.js"></script>
+                        <script src="../js/classie1.js"></script>
+				        <script src="../js/uisearch.js"></script>
 				        <script> new UISearch( document.getElementById( 'sb-search' ) );</script>
 					    <!----//search-scripts---->
 		                <div class="clearfix"> </div>
@@ -78,7 +78,7 @@
                 <!-- DIV que contiene la imagen y el menú -->
                 <div class="header_bottom">
                     <div class="logo">
-                        <h1><a href="index.html"><span class="m_1">Kegg</span> Phones</a></h1>
+                        <h1><a href="../index.aspx"><span class="m_1">Kegg</span> Phones</a></h1>
                     </div><!-- Fin del DIV del logo -->
                     <div class="menu">
                         <ul class="megamenu skyblue">

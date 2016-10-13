@@ -52,7 +52,7 @@
                         <ul class="header_user_info">
                             <i class="user"> </i>
                             <li class="user_desc">
-                                <asp:HyperLink ID="logInf" runat="server" CssClass="login" NavigateUrl="~/login.html">My Account</asp:HyperLink>
+                                <asp:HyperLink ID="logInf" runat="server" CssClass="login" NavigateUrl="~/Presentation/login.aspx">Log In</asp:HyperLink>
                             </li>
                             <div class="clearfix"> </div>
                         </ul>
@@ -79,7 +79,7 @@
                 <!-- DIV que contiene la imagen y el menú -->
                 <div class="header_bottom">
                     <div class="logo">
-                        <h1><a href="index.html"><span class="m_1">Kegg</span> Phones</a></h1>
+                        <h1><a href="index.aspx"><span class="m_1">Kegg</span> Phones</a></h1>
                     </div><!-- Fin del DIV del logo -->
                     <div class="menu">
                         <ul class="megamenu skyblue">

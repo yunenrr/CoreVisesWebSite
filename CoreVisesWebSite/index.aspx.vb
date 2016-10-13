@@ -7,14 +7,16 @@
             'Pregunta si la variable condición existe en la sesión
             If Session.Item("condition") Is Nothing Then
                 Session.Add("condition", 0)
-                logInf.NavigateUrl = "register.html"
-                logInf.Text = "Login"
+                logInf.NavigateUrl = "~/Presentation/login.aspx"
+                logInf.Text = "Log In"
             End If
         End If
 
         If CType(Session("condition"), Integer) = 0 Then
-            logInf.NavigateUrl = "register.html"
-            logInf.Text = "Login"
+            logInf.NavigateUrl = "~/Presentation/login.aspx"
+            logInf.Text = "Log In"
+        ElseIf CType(Session("condition"), Integer) = 1 Then
+            logInf.Text = "Exit"
         End If
     End Sub
 
