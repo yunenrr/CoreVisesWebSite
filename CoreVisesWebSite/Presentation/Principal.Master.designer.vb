@@ -23,6 +23,15 @@ Partial Public Class Principal
     Protected WithEvents logInf As Global.System.Web.UI.WebControls.HyperLink
     
     '''<summary>
+    '''menuController control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents menuController As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
     '''PrincipalBoard control.
     '''</summary>
     '''<remarks>

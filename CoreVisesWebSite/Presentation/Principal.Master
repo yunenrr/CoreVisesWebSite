@@ -34,7 +34,7 @@
                         <div class="box_11">
                             <a href="checkout.html">
                                 <h4>
-                                    <p>Cart: <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</p><img src="images/bag.png" alt=""/><div class="clearfix"> </div>
+                                    <p>Cart: <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</p><img src="../images/bag.png" alt=""/><div class="clearfix"> </div>
                                 </h4>
                             </a>
                         </div> <!-- Fin del div que muestra el total del carrito -->
@@ -80,18 +80,19 @@
                     <div class="logo">
                         <h1><a href="../index.aspx"><span class="m_1">Kegg</span> Phones</a></h1>
                     </div><!-- Fin del DIV del logo -->
-                    <div class="menu">
+                    <div class="menu" id="menuController" runat="server">
                         <ul class="megamenu skyblue">
                             <li>
-                                <a class="color2" href="#">Network</a>
+                                <a class="color2" href="#">Update Information</a>
                                 <div class="megapanel">
                                     <div class="row">
                                         <div class="col1">
                                             <div class="h_nav">
                                                 <ul>
-                                                    <li><a href="men.html">2G</a></li>
-									                <li><a href="men.html">3G</a></li>
-									                <li><a href="men.html">4G</a></li>
+                                                    <li><a href="update.aspx?option=personal">Personal</a></li>
+									                <li><a href="update.aspx?option=address">Address</a></li>
+									                <li><a href="update.aspx?option=password">Password</a></li>
+                                                    <li><a href="update.aspx?option=card">Card</a></li>
 								                </ul>	
                                             </div>
                                         </div>

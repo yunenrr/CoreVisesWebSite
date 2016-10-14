@@ -186,6 +186,7 @@
     <Content Include="men.html" />
     <Content Include="Presentation\login.aspx" />
     <Content Include="Presentation\register.aspx" />
+    <Content Include="Presentation\update.aspx" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="single.html" />
@@ -241,6 +242,13 @@
     <Compile Include="Presentation\Principal.Master.vb">
       <DependentUpon>Principal.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\update.aspx.designer.vb">
+      <DependentUpon>update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\update.aspx.vb">
+      <DependentUpon>update.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

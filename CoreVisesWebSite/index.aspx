@@ -27,7 +27,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="images/Logo.png" />
     </head>
     <body>
-	    <div class="banner">
+	    <div class="men_banner">
             <div class="container">
                 <div class="header_top">
                     <div class="header_top_left">
@@ -81,18 +81,19 @@
                     <div class="logo">
                         <h1><a href="index.aspx"><span class="m_1">Kegg</span> Phones</a></h1>
                     </div><!-- Fin del DIV del logo -->
-                    <div class="menu">
+                    <div class="menu" id="menuController" runat="server">
                         <ul class="megamenu skyblue">
                             <li>
-                                <a class="color2" href="#">Network</a>
+                                <a class="color2" href="#">Update Information</a>
                                 <div class="megapanel">
                                     <div class="row">
                                         <div class="col1">
                                             <div class="h_nav">
                                                 <ul>
-                                                    <li><a href="men.html">2G</a></li>
-									                <li><a href="men.html">3G</a></li>
-									                <li><a href="men.html">4G</a></li>
+                                                    <li><a href="Presentation/update.aspx?option=personal">Personal</a></li>
+									                <li><a href="Presentation/update.aspx?option=address">Address</a></li>
+									                <li><a href="Presentation/update.aspx?option=password">Password</a></li>
+                                                    <li><a href="Presentation/update.aspx?option=card">Card</a></li>
 								                </ul>	
                                             </div>
                                         </div>
@@ -163,13 +164,6 @@
                     </li> <!-- Fin de la información de Windows Phone -->
                     <div class="clearfix"> </div>         
                 </ul> <!-- Fin del UL content-home-->
-            </div>
-            <!-- Información que va en medio -->
-            <div class="middle_content">
-                <div class="container">
-                    <h2>Welcome</h2>
-                    <p>Online shopping variety of cell and smartphones to crazy prices..!!</p>
-                </div>
             </div>
 
             <!-- Footer -->
