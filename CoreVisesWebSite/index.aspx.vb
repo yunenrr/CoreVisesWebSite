@@ -17,6 +17,7 @@
             logInf.Text = "Log In"
             menuController.Style.Add("display", "none") 'La otra es none
         ElseIf CType(Session("condition"), Integer) = 1 Then
+            logInf.NavigateUrl = "~/Presentation/login.aspx?exit=1"
             logInf.Text = "Exit"
             menuController.Style.Add("display", "initial")
         End If

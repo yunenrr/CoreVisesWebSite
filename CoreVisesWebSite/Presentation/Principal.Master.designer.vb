@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class Principal
     
     '''<summary>
+    '''Head control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Head As Global.System.Web.UI.WebControls.ContentPlaceHolder
+    
+    '''<summary>
     '''logInf control.
     '''</summary>
     '''<remarks>

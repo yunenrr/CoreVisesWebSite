@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="Principal.Master" CodeBehind="register.aspx.vb" Inherits="CoreVisesWebSite.register" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="Head" runat="server"></asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="PrincipalBoard" runat="server">
     <div class="account-in">
         <div class="container">

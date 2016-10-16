@@ -123,8 +123,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.html" />
-    <Content Include="brands.html" />
-    <Content Include="checkout.html" />
     <Content Include="contact.html" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\component.css" />
@@ -183,13 +181,14 @@
     <Content Include="js\megamenu.js" />
     <Content Include="js\simpleCart.min.js" />
     <Content Include="js\uisearch.js" />
-    <Content Include="men.html" />
+    <Content Include="Presentation\allProducts.aspx" />
     <Content Include="Presentation\login.aspx" />
+    <Content Include="Presentation\myShoppingBag.aspx" />
+    <Content Include="Presentation\phoneInformation.aspx" />
     <Content Include="Presentation\register.aspx" />
     <Content Include="Presentation\update.aspx" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
-    <Content Include="single.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -222,11 +221,32 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Presentation\allProducts.aspx.designer.vb">
+      <DependentUpon>allProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\allProducts.aspx.vb">
+      <DependentUpon>allProducts.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Presentation\login.aspx.designer.vb">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Presentation\login.aspx.vb">
       <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\myShoppingBag.aspx.designer.vb">
+      <DependentUpon>myShoppingBag.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\myShoppingBag.aspx.vb">
+      <DependentUpon>myShoppingBag.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\phoneInformation.aspx.designer.vb">
+      <DependentUpon>phoneInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\phoneInformation.aspx.vb">
+      <DependentUpon>phoneInformation.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Presentation\register.aspx.designer.vb">

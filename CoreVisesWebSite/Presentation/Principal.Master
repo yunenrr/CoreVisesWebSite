@@ -25,6 +25,7 @@
         <script src="../js/simpleCart.min.js"> </script>
         <!-- ícono --->
         <link rel="shortcut icon" type="image/x-icon" href="../images/Logo.png" />
+        <asp:ContentPlaceHolder ID="Head" runat="server"></asp:ContentPlaceHolder>
     </head>
     <body>
         <div class="men_banner">
@@ -52,7 +53,7 @@
                         <ul class="header_user_info">
                             <i class="user"> </i>
                             <li class="user_desc">
-                                <asp:HyperLink ID="logInf" runat="server" CssClass="login" NavigateUrl="~/login.html">My Account</asp:HyperLink>
+                                <asp:HyperLink ID="logInf" runat="server" CssClass="login" NavigateUrl="~/Presentation/login.aspx">My Account</asp:HyperLink>
                             </li>
                             <div class="clearfix"> </div>
                         </ul>
@@ -98,23 +99,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                            <li>
-                                <a class="color4" href="#">Brands</a>
-                                <div class="megapanel" style="margin-left: 54%;">
-                                    <div class="row">
-                                        <div class="col2">
-                                            <div class="h_nav">
-                                                <ul>
-                                                    <li><a href="men.html">Apple</a></li>
-									                <li><a href="men.html">Samsung</a></li>
-									                <li><a href="men.html">LG</a></li>
-                                                </ul>	
-                                            </div>							
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>				
+                            </li>			
                             <div class="clearfix"> </div>
                         </ul>
                     </div><!-- Fin del DIV del menú -->

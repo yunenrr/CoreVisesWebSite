@@ -3,6 +3,11 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         MyClass.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None
+
+        If Not (Request.QueryString("exit") Is Nothing) Then
+            Session.Item("condition") = 0
+            Response.Redirect("../index.aspx")
+        End If
     End Sub
 
     Protected Sub btnLogIn_Click(sender As Object, e As EventArgs)

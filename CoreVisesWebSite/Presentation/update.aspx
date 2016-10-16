@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Presentation/Principal.Master" CodeBehind="update.aspx.vb" Inherits="CoreVisesWebSite.update" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="Head" runat="server"></asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="PrincipalBoard" runat="server">
     <div class="account-in">
         <div class="container">

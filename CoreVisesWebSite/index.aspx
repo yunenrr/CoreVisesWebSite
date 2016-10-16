@@ -99,22 +99,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                            <li>
-                                <a class="color4" href="#">Brands</a>
-                                <div class="megapanel" style="margin-left: 54%;">
-                                    <div class="row">
-                                        <div class="col2">
-                                            <div class="h_nav">
-                                                <ul>
-                                                    <li><a href="men.html">Apple</a></li>
-									                <li><a href="men.html">Samsung</a></li>
-									                <li><a href="men.html">LG</a></li>
-                                                </ul>	
-                                            </div>							
-                                        </div>
-                                    </div>
-                                </div>
                             </li>				
                             <div class="clearfix"> </div>
                         </ul>
@@ -151,7 +135,7 @@
                         </a>
                     </li> <!-- Fin de la información de iOS -->
                     <li class="col-sm-4">
-                        <a href="single.html" class="item-link" title="">
+                        <a href="men.html" class="item-link" title="">
                             <div class="bannerBox">
                                 <img src="images/w2.jpg" class="item-img" title="" alt="" width="100%" height="100%" />
                                 <div class="item-html">
