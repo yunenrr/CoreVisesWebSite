@@ -82,6 +82,8 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web.DynamicData" />
@@ -127,23 +129,17 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\component.css" />
     <Content Include="css\flexslider.css" />
+    <Content Include="css\font-awesome-4.6.3\css\font-awesome.css" />
+    <Content Include="css\font-awesome-4.6.3\css\font-awesome.min.css" />
+    <Content Include="css\font-awesome-4.6.3\fonts\fontawesome-webfont.svg" />
+    <Content Include="css\font-awesome-4.6.3\HELP-US-OUT.txt" />
     <Content Include="css\megamenu.css" />
     <Content Include="css\style.css" />
     <Content Include="Global.asax" />
-    <Content Include="images\2nd-day.jpg" />
     <Content Include="images\arrow2.gif" />
     <Content Include="images\bag.png" />
     <Content Include="images\close_1.png" />
-    <Content Include="images\compare.png" />
     <Content Include="images\g-star-raw.jpg" />
-    <Content Include="images\g1.jpg" />
-    <Content Include="images\g2.jpg" />
-    <Content Include="images\g3.jpg" />
-    <Content Include="images\g4.jpg" />
-    <Content Include="images\g5.jpg" />
-    <Content Include="images\g6.jpg" />
-    <Content Include="images\g7.jpg" />
-    <Content Include="images\g8.jpg" />
     <Content Include="images\grid_view.png" />
     <Content Include="images\img-sprite.png" />
     <Content Include="images\list_view.png" />
@@ -189,6 +185,51 @@
     <Content Include="Presentation\update.aspx" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="css\font-awesome-4.6.3\fonts\fontawesome-webfont.eot" />
+    <Content Include="css\font-awesome-4.6.3\fonts\fontawesome-webfont.ttf" />
+    <Content Include="css\font-awesome-4.6.3\fonts\fontawesome-webfont.woff" />
+    <Content Include="css\font-awesome-4.6.3\fonts\fontawesome-webfont.woff2" />
+    <Content Include="css\font-awesome-4.6.3\fonts\FontAwesome.otf" />
+    <Content Include="css\font-awesome-4.6.3\less\animated.less" />
+    <Content Include="css\font-awesome-4.6.3\less\bordered-pulled.less" />
+    <Content Include="css\font-awesome-4.6.3\less\core.less" />
+    <Content Include="css\font-awesome-4.6.3\less\fixed-width.less" />
+    <Content Include="css\font-awesome-4.6.3\less\font-awesome.less" />
+    <Content Include="css\font-awesome-4.6.3\less\icons.less" />
+    <Content Include="css\font-awesome-4.6.3\less\larger.less" />
+    <Content Include="css\font-awesome-4.6.3\less\list.less" />
+    <Content Include="css\font-awesome-4.6.3\less\mixins.less" />
+    <Content Include="css\font-awesome-4.6.3\less\path.less" />
+    <Content Include="css\font-awesome-4.6.3\less\rotated-flipped.less" />
+    <Content Include="css\font-awesome-4.6.3\less\screen-reader.less" />
+    <Content Include="css\font-awesome-4.6.3\less\stacked.less" />
+    <Content Include="css\font-awesome-4.6.3\less\variables.less" />
+    <Content Include="css\font-awesome-4.6.3\scss\font-awesome.scss" />
+    <Content Include="css\font-awesome-4.6.3\scss\_animated.scss" />
+    <Content Include="css\font-awesome-4.6.3\scss\_bordered-pulled.scss" />
+    <Content Include="css\font-awesome-4.6.3\scss\_core.scss" />
+    <Content Include="css\font-awesome-4.6.3\scss\_fixed-width.scss" />
+    <Content Include="css\font-awesome-4.6.3\scss\_icons.scss" />
+    <Content Include="css\font-awesome-4.6.3\scss\_larger.scss" />
+    <Content Include="css\font-awesome-4.6.3\scss\_list.scss" />
+    <Content Include="css\font-awesome-4.6.3\scss\_mixins.scss" />
+    <Content Include="css\font-awesome-4.6.3\scss\_path.scss" />
+    <Content Include="css\font-awesome-4.6.3\scss\_rotated-flipped.scss" />
+    <Content Include="css\font-awesome-4.6.3\scss\_screen-reader.scss" />
+    <Content Include="css\font-awesome-4.6.3\scss\_stacked.scss" />
+    <Content Include="css\font-awesome-4.6.3\scss\_variables.scss" />
+    <None Include="Service References\ClientServiceReference\ClientService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClientServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\ClientServiceReference\configuration.svcinfo" />
+    <Content Include="Service References\ClientServiceReference\CoreVisesWebSite.ClientServiceReference.Client.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ClientServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -270,6 +311,11 @@
       <DependentUpon>update.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Service References\ClientServiceReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -294,12 +340,25 @@
     </None>
     <Content Include="packages.config" />
     <Content Include="Presentation\Principal.Master" />
+    <None Include="Service References\ClientServiceReference\ClientService.wsdl" />
+    <None Include="Service References\ClientServiceReference\ClientService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClientServiceReference\ClientService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ClientServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

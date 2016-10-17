@@ -111,7 +111,7 @@
             <div class="container">
                 <ul class="content-home">
                     <li class="col-sm-4">
-                        <a href="single.html" class="item-link" title="">
+                        <a href="Presentation/allProducts.aspx" class="item-link" title="">
                             <div class="bannerBox">
                                 <img src="images/w1.jpg" class="item-img" title="" alt="" width="100%" height="100%" />
                                 <div class="item-html">
@@ -123,7 +123,7 @@
                         </a>
                     </li> <!-- Fin de la información de Android -->
                     <li class="col-sm-4">
-                        <a href="single.html" class="item-link" title="">
+                        <a href="Presentation/allProducts.aspx" class="item-link" title="">
                             <div class="bannerBox">
                                 <img src="images/w3.jpg" class="item-img" title="" alt="" width="100%" height="100%" />
                                 <div class="item-html">
@@ -135,7 +135,7 @@
                         </a>
                     </li> <!-- Fin de la información de iOS -->
                     <li class="col-sm-4">
-                        <a href="men.html" class="item-link" title="">
+                        <a href="Presentation/allProducts.aspx" class="item-link" title="">
                             <div class="bannerBox">
                                 <img src="images/w2.jpg" class="item-img" title="" alt="" width="100%" height="100%" />
                                 <div class="item-html">
