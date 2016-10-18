@@ -92,7 +92,7 @@
                                                 <ul>
                                                     <li><a href="Presentation/update.aspx?option=personal">Personal</a></li>
 									                <li><a href="Presentation/update.aspx?option=address">Address</a></li>
-									                <li><a href="Presentation/update.aspx?option=password">Password</a></li>
+									                <li><a href="Presentation/updatePassword.aspx">Password</a></li>
                                                     <li><a href="Presentation/update.aspx?option=card">Card</a></li>
 								                </ul>	
                                             </div>
