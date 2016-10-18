@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BrandService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://25.45.62.52/Services/BrandService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://25.45.62.52/Services/BrandService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://25.45.62.52/Services/BrandService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Domain" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBrandService_insertBrand_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertBrand" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_insertBrand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_updateBrand_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateBrand" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_updateBrand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_deleteBrand_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteBrand" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_deleteBrand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_getAllBrands_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllBrands" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_getAllBrands_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllBrandsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBrandService">
+    <wsdl:operation name="insertBrand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBrandService/insertBrand" message="tns:IBrandService_insertBrand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBrandService/insertBrandResponse" message="tns:IBrandService_insertBrand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateBrand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBrandService/updateBrand" message="tns:IBrandService_updateBrand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBrandService/updateBrandResponse" message="tns:IBrandService_updateBrand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteBrand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBrandService/deleteBrand" message="tns:IBrandService_deleteBrand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBrandService/deleteBrandResponse" message="tns:IBrandService_deleteBrand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllBrands">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBrandService/getAllBrands" message="tns:IBrandService_getAllBrands_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBrandService/getAllBrandsResponse" message="tns:IBrandService_getAllBrands_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBrandService" type="tns:IBrandService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="insertBrand">
+      <soap:operation soapAction="http://tempuri.org/IBrandService/insertBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBrand">
+      <soap:operation soapAction="http://tempuri.org/IBrandService/updateBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteBrand">
+      <soap:operation soapAction="http://tempuri.org/IBrandService/deleteBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllBrands">
+      <soap:operation soapAction="http://tempuri.org/IBrandService/getAllBrands" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BrandService">
+    <wsdl:port name="BasicHttpBinding_IBrandService" binding="tns:BasicHttpBinding_IBrandService">
+      <soap:address location="http://25.45.62.52/Services/BrandService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

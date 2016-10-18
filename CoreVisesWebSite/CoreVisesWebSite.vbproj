@@ -220,15 +220,43 @@
     <Content Include="css\font-awesome-4.6.3\scss\_screen-reader.scss" />
     <Content Include="css\font-awesome-4.6.3\scss\_stacked.scss" />
     <Content Include="css\font-awesome-4.6.3\scss\_variables.scss" />
+    <None Include="Service References\BrandServiceReference\BrandService.wsdl" />
+    <None Include="Service References\BrandServiceReference\BrandService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BrandServiceReference\BrandService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BrandServiceReference\BrandService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\BrandServiceReference\CoreVisesWebSite.BrandServiceReference.Brand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\ClientServiceReference\ClientService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ClientServiceReference\configuration91.svcinfo" />
     <None Include="Service References\ClientServiceReference\configuration.svcinfo" />
+    <None Include="Service References\BrandServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\BrandServiceReference\configuration.svcinfo" />
+    <None Include="Service References\BrandServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
     <Content Include="Service References\ClientServiceReference\CoreVisesWebSite.ClientServiceReference.Client.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\ClientServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\PhoneServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\PhoneServiceReference\configuration.svcinfo" />
+    <Content Include="Service References\PhoneServiceReference\CoreVisesWebSite.PhoneServiceReference.Phone.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\PhoneServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
@@ -327,7 +355,17 @@
       <DependentUpon>welcome.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Service References\BrandServiceReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ClientServiceReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PhoneServiceReference\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -363,6 +401,16 @@
     <None Include="Service References\ClientServiceReference\ClientService1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\PhoneServiceReference\PhoneService.wsdl" />
+    <None Include="Service References\PhoneServiceReference\PhoneService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PhoneServiceReference\PhoneService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PhoneServiceReference\PhoneService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -374,7 +422,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BrandServiceReference\" />
     <WCFMetadataStorage Include="Service References\ClientServiceReference\" />
+    <WCFMetadataStorage Include="Service References\PhoneServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

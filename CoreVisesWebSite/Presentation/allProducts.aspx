@@ -6,6 +6,26 @@
     <div class="men">
         <div class="container">
             <div class="col-md-4 sidebar_men">
+                <form id="getPhones" class="form-horizontal" runat="server">
+                    <!-- Por tipos -->
+                    <h3>Filters</h3>
+                    <div class="form-group">
+                        <asp:Label ID="lblOS" CssClass="control-label col-sm-2" runat="server"
+                            Text="OS:" AssociatedControlID="ddlOS"></asp:Label>
+                        <asp:DropDownList ID="ddlOS" runat="server" CssClass="form-control">
+                            <asp:ListItem Value="Android">Android</asp:ListItem>
+                            <asp:ListItem Value="iOS">iOS</asp:ListItem>
+                            <asp:ListItem Value="Windows Phone">Windows Phone</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                    <div class="form-group">
+                        <asp:Label ID="lblBrand" CssClass="control-label col-sm-2" runat="server"
+                            Text="Brand:" AssociatedControlID="ddlOS"></asp:Label>
+                        <asp:DropDownList ID="ddlBrand" runat="server" CssClass="form-control"></asp:DropDownList>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4 sidebar_men">
                 <!-- Por tipos -->
                 <h3>Categories</h3>
                 <ul class="product-categories color"><li class="cat-item cat-item-42"><a href="#">Dresses</a> <span class="count">(14)</span></li>

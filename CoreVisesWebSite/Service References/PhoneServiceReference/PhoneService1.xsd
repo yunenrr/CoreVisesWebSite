@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://25.45.62.52/Services/PhoneService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Domain" />
+  <xs:element name="insertPhone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idPhone" type="xs:int" />
+        <xs:element minOccurs="0" name="idBrand" type="xs:int" />
+        <xs:element minOccurs="0" name="model" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="os" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="networkmode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="internalMemory" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="externalMemory" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pixels" type="xs:int" />
+        <xs:element minOccurs="0" name="flash" type="xs:int" />
+        <xs:element minOccurs="0" name="resolution" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="price" type="xs:int" />
+        <xs:element minOccurs="0" name="quantity" type="xs:int" />
+        <xs:element minOccurs="0" name="image" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertPhoneResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertPhoneResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPhones">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPhonesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="getPhonesResult" nillable="true" type="q1:ArrayOfPhone" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
