@@ -183,6 +183,7 @@
     <Content Include="Presentation\phoneInformation.aspx" />
     <Content Include="Presentation\register.aspx" />
     <Content Include="Presentation\update.aspx" />
+    <Content Include="Presentation\welcome.aspx" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="css\font-awesome-4.6.3\fonts\fontawesome-webfont.eot" />
@@ -309,6 +310,13 @@
     </Compile>
     <Compile Include="Presentation\update.aspx.vb">
       <DependentUpon>update.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\welcome.aspx.designer.vb">
+      <DependentUpon>welcome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\welcome.aspx.vb">
+      <DependentUpon>welcome.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Service References\ClientServiceReference\Reference.vb">
