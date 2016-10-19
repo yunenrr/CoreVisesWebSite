@@ -53,7 +53,21 @@
   <xs:element name="getAllBrandsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="getAllBrandsResult" nillable="true" type="q1:ArrayOfBrand" />
+        <xs:element minOccurs="0" name="getAllBrandsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBrandById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idBrand" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBrandByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="getBrandByIdResult" nillable="true" type="q1:Brand" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -19,6 +19,12 @@
   <wsdl:message name="IPhoneService_getPhones_OutputMessage">
     <wsdl:part name="parameters" element="tns:getPhonesResponse" />
   </wsdl:message>
+  <wsdl:message name="IPhoneService_getPhoneById_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPhoneById" />
+  </wsdl:message>
+  <wsdl:message name="IPhoneService_getPhoneById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPhoneByIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPhoneService">
     <wsdl:operation name="insertPhone">
       <wsdl:input wsaw:Action="http://tempuri.org/IPhoneService/insertPhone" message="tns:IPhoneService_insertPhone_InputMessage" />
@@ -27,6 +33,10 @@
     <wsdl:operation name="getPhones">
       <wsdl:input wsaw:Action="http://tempuri.org/IPhoneService/getPhones" message="tns:IPhoneService_getPhones_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPhoneService/getPhonesResponse" message="tns:IPhoneService_getPhones_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPhoneById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPhoneService/getPhoneById" message="tns:IPhoneService_getPhoneById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPhoneService/getPhoneByIdResponse" message="tns:IPhoneService_getPhoneById_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPhoneService" type="tns:IPhoneService">
@@ -42,6 +52,15 @@
     </wsdl:operation>
     <wsdl:operation name="getPhones">
       <soap:operation soapAction="http://tempuri.org/IPhoneService/getPhones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPhoneById">
+      <soap:operation soapAction="http://tempuri.org/IPhoneService/getPhoneById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

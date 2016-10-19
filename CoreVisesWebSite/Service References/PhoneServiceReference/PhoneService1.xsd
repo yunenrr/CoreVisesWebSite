@@ -35,7 +35,21 @@
   <xs:element name="getPhonesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="getPhonesResult" nillable="true" type="q1:ArrayOfPhone" />
+        <xs:element minOccurs="0" name="getPhonesResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPhoneById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idPhone" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPhoneByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="getPhoneByIdResult" nillable="true" type="q1:Phone" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

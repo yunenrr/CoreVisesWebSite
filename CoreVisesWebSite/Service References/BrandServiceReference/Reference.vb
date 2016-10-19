@@ -102,10 +102,16 @@ Namespace BrandServiceReference
         Function deleteBrandAsync(ByVal idBrand As Integer) As System.Threading.Tasks.Task(Of Integer)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBrandService/getAllBrands", ReplyAction:="http://tempuri.org/IBrandService/getAllBrandsResponse")>  _
-        Function getAllBrands() As BrandServiceReference.Brand()
+        Function getAllBrands() As String
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBrandService/getAllBrands", ReplyAction:="http://tempuri.org/IBrandService/getAllBrandsResponse")>  _
-        Function getAllBrandsAsync() As System.Threading.Tasks.Task(Of BrandServiceReference.Brand())
+        Function getAllBrandsAsync() As System.Threading.Tasks.Task(Of String)
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBrandService/getBrandById", ReplyAction:="http://tempuri.org/IBrandService/getBrandByIdResponse")>  _
+        Function getBrandById(ByVal idBrand As Integer) As BrandServiceReference.Brand
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBrandService/getBrandById", ReplyAction:="http://tempuri.org/IBrandService/getBrandByIdResponse")>  _
+        Function getBrandByIdAsync(ByVal idBrand As Integer) As System.Threading.Tasks.Task(Of BrandServiceReference.Brand)
     End Interface
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")>  _
@@ -163,12 +169,20 @@ Namespace BrandServiceReference
             Return MyBase.Channel.deleteBrandAsync(idBrand)
         End Function
         
-        Public Function getAllBrands() As BrandServiceReference.Brand() Implements BrandServiceReference.IBrandService.getAllBrands
+        Public Function getAllBrands() As String Implements BrandServiceReference.IBrandService.getAllBrands
             Return MyBase.Channel.getAllBrands
         End Function
         
-        Public Function getAllBrandsAsync() As System.Threading.Tasks.Task(Of BrandServiceReference.Brand()) Implements BrandServiceReference.IBrandService.getAllBrandsAsync
+        Public Function getAllBrandsAsync() As System.Threading.Tasks.Task(Of String) Implements BrandServiceReference.IBrandService.getAllBrandsAsync
             Return MyBase.Channel.getAllBrandsAsync
+        End Function
+        
+        Public Function getBrandById(ByVal idBrand As Integer) As BrandServiceReference.Brand Implements BrandServiceReference.IBrandService.getBrandById
+            Return MyBase.Channel.getBrandById(idBrand)
+        End Function
+        
+        Public Function getBrandByIdAsync(ByVal idBrand As Integer) As System.Threading.Tasks.Task(Of BrandServiceReference.Brand) Implements BrandServiceReference.IBrandService.getBrandByIdAsync
+            Return MyBase.Channel.getBrandByIdAsync(idBrand)
         End Function
     End Class
 End Namespace

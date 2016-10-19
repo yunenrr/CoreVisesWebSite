@@ -329,10 +329,16 @@ Namespace PhoneServiceReference
         Function insertPhoneAsync(ByVal idPhone As Integer, ByVal idBrand As Integer, ByVal model As String, ByVal os As String, ByVal networkmode As String, ByVal internalMemory As String, ByVal externalMemory As String, ByVal pixels As Integer, ByVal flash As Integer, ByVal resolution As String, ByVal price As Integer, ByVal quantity As Integer, ByVal image As String) As System.Threading.Tasks.Task(Of Integer)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPhoneService/getPhones", ReplyAction:="http://tempuri.org/IPhoneService/getPhonesResponse")>  _
-        Function getPhones() As PhoneServiceReference.Phone()
+        Function getPhones() As String
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPhoneService/getPhones", ReplyAction:="http://tempuri.org/IPhoneService/getPhonesResponse")>  _
-        Function getPhonesAsync() As System.Threading.Tasks.Task(Of PhoneServiceReference.Phone())
+        Function getPhonesAsync() As System.Threading.Tasks.Task(Of String)
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPhoneService/getPhoneById", ReplyAction:="http://tempuri.org/IPhoneService/getPhoneByIdResponse")>  _
+        Function getPhoneById(ByVal idPhone As Integer) As PhoneServiceReference.Phone
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPhoneService/getPhoneById", ReplyAction:="http://tempuri.org/IPhoneService/getPhoneByIdResponse")>  _
+        Function getPhoneByIdAsync(ByVal idPhone As Integer) As System.Threading.Tasks.Task(Of PhoneServiceReference.Phone)
     End Interface
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")>  _
@@ -374,12 +380,20 @@ Namespace PhoneServiceReference
             Return MyBase.Channel.insertPhoneAsync(idPhone, idBrand, model, os, networkmode, internalMemory, externalMemory, pixels, flash, resolution, price, quantity, image)
         End Function
         
-        Public Function getPhones() As PhoneServiceReference.Phone() Implements PhoneServiceReference.IPhoneService.getPhones
+        Public Function getPhones() As String Implements PhoneServiceReference.IPhoneService.getPhones
             Return MyBase.Channel.getPhones
         End Function
         
-        Public Function getPhonesAsync() As System.Threading.Tasks.Task(Of PhoneServiceReference.Phone()) Implements PhoneServiceReference.IPhoneService.getPhonesAsync
+        Public Function getPhonesAsync() As System.Threading.Tasks.Task(Of String) Implements PhoneServiceReference.IPhoneService.getPhonesAsync
             Return MyBase.Channel.getPhonesAsync
+        End Function
+        
+        Public Function getPhoneById(ByVal idPhone As Integer) As PhoneServiceReference.Phone Implements PhoneServiceReference.IPhoneService.getPhoneById
+            Return MyBase.Channel.getPhoneById(idPhone)
+        End Function
+        
+        Public Function getPhoneByIdAsync(ByVal idPhone As Integer) As System.Threading.Tasks.Task(Of PhoneServiceReference.Phone) Implements PhoneServiceReference.IPhoneService.getPhoneByIdAsync
+            Return MyBase.Channel.getPhoneByIdAsync(idPhone)
         End Function
     End Class
 End Namespace

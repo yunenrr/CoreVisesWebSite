@@ -57,4 +57,22 @@ Partial Public Class allProducts
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlBrand As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''lblNetworkMode control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblNetworkMode As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''ddlNetworkMode control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlNetworkMode As Global.System.Web.UI.WebControls.DropDownList
 End Class
