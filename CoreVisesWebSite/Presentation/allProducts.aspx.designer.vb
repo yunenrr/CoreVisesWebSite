@@ -23,6 +23,24 @@ Partial Public Class allProducts
     Protected WithEvents getPhones As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
+    '''ScriptManager1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
+    
+    '''<summary>
+    '''UpdatePanel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
+    
+    '''<summary>
     '''lblOS control.
     '''</summary>
     '''<remarks>
@@ -75,4 +93,13 @@ Partial Public Class allProducts
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlNetworkMode As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''UpdateProgress1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdateProgress1 As Global.System.Web.UI.UpdateProgress
 End Class

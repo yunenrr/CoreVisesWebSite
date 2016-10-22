@@ -1,53 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://25.45.62.52/Services/BrandService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Domain" />
   <xs:element name="insertBrand">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="idBrand" type="xs:int" />
+        <xs:element minOccurs="0" name="idBrand" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="insertBrandResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="insertBrandResult" type="xs:int" />
+        <xs:element minOccurs="0" name="insertBrandResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="updateBrand">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="idBrand" type="xs:int" />
+        <xs:element minOccurs="0" name="idBrand" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="updateBrandResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="updateBrandResult" type="xs:int" />
+        <xs:element minOccurs="0" name="updateBrandResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="deleteBrand">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="idBrand" type="xs:int" />
+        <xs:element minOccurs="0" name="idBrand" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="deleteBrandResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="deleteBrandResult" type="xs:int" />
+        <xs:element minOccurs="0" name="deleteBrandResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getAllBrands">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getAllBrandsResponse">
@@ -60,14 +64,15 @@
   <xs:element name="getBrandById">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="idBrand" type="xs:int" />
+        <xs:element minOccurs="0" name="idBrand" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getBrandByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="getBrandByIdResult" nillable="true" type="q1:Brand" />
+        <xs:element minOccurs="0" name="getBrandByIdResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

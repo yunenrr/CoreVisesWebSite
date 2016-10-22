@@ -51,7 +51,7 @@
                             <div class="form-group">
                                 <div class="alert alert-danger col-sm-offset-2" style="width:42%">
                                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    The client entered does not exist in our system
+                                    <asp:Label ID="lblMessage" runat="server"></asp:Label>
                                 </div>
                             </div>
                         </div>

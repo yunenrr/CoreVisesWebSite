@@ -4,15 +4,8 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://25.45.62.52/Services/PhoneService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://25.45.62.52/Services/PhoneService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://25.45.62.52/Services/PhoneService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Domain" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IPhoneService_insertPhone_InputMessage">
-    <wsdl:part name="parameters" element="tns:insertPhone" />
-  </wsdl:message>
-  <wsdl:message name="IPhoneService_insertPhone_OutputMessage">
-    <wsdl:part name="parameters" element="tns:insertPhoneResponse" />
-  </wsdl:message>
   <wsdl:message name="IPhoneService_getPhones_InputMessage">
     <wsdl:part name="parameters" element="tns:getPhones" />
   </wsdl:message>
@@ -26,10 +19,6 @@
     <wsdl:part name="parameters" element="tns:getPhoneByIdResponse" />
   </wsdl:message>
   <wsdl:portType name="IPhoneService">
-    <wsdl:operation name="insertPhone">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPhoneService/insertPhone" message="tns:IPhoneService_insertPhone_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPhoneService/insertPhoneResponse" message="tns:IPhoneService_insertPhone_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="getPhones">
       <wsdl:input wsaw:Action="http://tempuri.org/IPhoneService/getPhones" message="tns:IPhoneService_getPhones_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPhoneService/getPhonesResponse" message="tns:IPhoneService_getPhones_OutputMessage" />
@@ -41,15 +30,6 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPhoneService" type="tns:IPhoneService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="insertPhone">
-      <soap:operation soapAction="http://tempuri.org/IPhoneService/insertPhone" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="getPhones">
       <soap:operation soapAction="http://tempuri.org/IPhoneService/getPhones" style="document" />
       <wsdl:input>

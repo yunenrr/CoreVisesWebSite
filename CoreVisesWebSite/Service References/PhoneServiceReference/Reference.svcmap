@@ -24,7 +24,6 @@
   <Metadata>
     <MetadataFile FileName="PhoneService.xsd" MetadataType="Schema" ID="b5d49c33-c067-42e8-8b76-a494035eeab6" SourceId="1" SourceUrl="http://25.45.62.52/Services/PhoneService.svc?xsd=xsd1" />
     <MetadataFile FileName="PhoneService1.xsd" MetadataType="Schema" ID="97236743-50a8-45da-921c-9bdbf6846cc6" SourceId="1" SourceUrl="http://25.45.62.52/Services/PhoneService.svc?xsd=xsd0" />
-    <MetadataFile FileName="PhoneService2.xsd" MetadataType="Schema" ID="fc2dcabf-2e2d-4ab7-ba78-5634cf8379ef" SourceId="1" SourceUrl="http://25.45.62.52/Services/PhoneService.svc?xsd=xsd2" />
     <MetadataFile FileName="PhoneService.wsdl" MetadataType="Wsdl" ID="0f0542b1-86f0-426e-a04f-2c8d6c723daa" SourceId="1" SourceUrl="http://25.45.62.52/Services/PhoneService.svc?wsdl" />
   </Metadata>
   <Extensions>

@@ -11,251 +11,42 @@
 Option Strict On
 Option Explicit On
 
-Imports System
-Imports System.Runtime.Serialization
 
 Namespace ClientServiceReference
-    
-    <System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
-     System.Runtime.Serialization.DataContractAttribute(Name:="Client", [Namespace]:="http://schemas.datacontract.org/2004/07/Domain"),  _
-     System.SerializableAttribute()>  _
-    Partial Public Class Client
-        Inherits Object
-        Implements System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
-        
-        <System.NonSerializedAttribute()>  _
-        Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
-        
-        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private AddressDirectionField As String
-        
-        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private EmailField As String
-        
-        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private IdUserField As Integer
-        
-        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private LastName_1Field As String
-        
-        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private LastName_2Field As String
-        
-        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private NameField As String
-        
-        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private NameUserField As String
-        
-        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private NumberCardField As String
-        
-        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private PasswordUserField As String
-        
-        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private PostalCodeField As String
-        
-        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private SvcCardField As String
-        
-        <Global.System.ComponentModel.BrowsableAttribute(false)>  _
-        Public Property ExtensionData() As System.Runtime.Serialization.ExtensionDataObject Implements System.Runtime.Serialization.IExtensibleDataObject.ExtensionData
-            Get
-                Return Me.extensionDataField
-            End Get
-            Set
-                Me.extensionDataField = value
-            End Set
-        End Property
-        
-        <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property AddressDirection() As String
-            Get
-                Return Me.AddressDirectionField
-            End Get
-            Set
-                If (Object.ReferenceEquals(Me.AddressDirectionField, value) <> true) Then
-                    Me.AddressDirectionField = value
-                    Me.RaisePropertyChanged("AddressDirection")
-                End If
-            End Set
-        End Property
-        
-        <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property Email() As String
-            Get
-                Return Me.EmailField
-            End Get
-            Set
-                If (Object.ReferenceEquals(Me.EmailField, value) <> true) Then
-                    Me.EmailField = value
-                    Me.RaisePropertyChanged("Email")
-                End If
-            End Set
-        End Property
-        
-        <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property IdUser() As Integer
-            Get
-                Return Me.IdUserField
-            End Get
-            Set
-                If (Me.IdUserField.Equals(value) <> true) Then
-                    Me.IdUserField = value
-                    Me.RaisePropertyChanged("IdUser")
-                End If
-            End Set
-        End Property
-        
-        <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property LastName_1() As String
-            Get
-                Return Me.LastName_1Field
-            End Get
-            Set
-                If (Object.ReferenceEquals(Me.LastName_1Field, value) <> true) Then
-                    Me.LastName_1Field = value
-                    Me.RaisePropertyChanged("LastName_1")
-                End If
-            End Set
-        End Property
-        
-        <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property LastName_2() As String
-            Get
-                Return Me.LastName_2Field
-            End Get
-            Set
-                If (Object.ReferenceEquals(Me.LastName_2Field, value) <> true) Then
-                    Me.LastName_2Field = value
-                    Me.RaisePropertyChanged("LastName_2")
-                End If
-            End Set
-        End Property
-        
-        <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property Name() As String
-            Get
-                Return Me.NameField
-            End Get
-            Set
-                If (Object.ReferenceEquals(Me.NameField, value) <> true) Then
-                    Me.NameField = value
-                    Me.RaisePropertyChanged("Name")
-                End If
-            End Set
-        End Property
-        
-        <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property NameUser() As String
-            Get
-                Return Me.NameUserField
-            End Get
-            Set
-                If (Object.ReferenceEquals(Me.NameUserField, value) <> true) Then
-                    Me.NameUserField = value
-                    Me.RaisePropertyChanged("NameUser")
-                End If
-            End Set
-        End Property
-        
-        <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property NumberCard() As String
-            Get
-                Return Me.NumberCardField
-            End Get
-            Set
-                If (Object.ReferenceEquals(Me.NumberCardField, value) <> true) Then
-                    Me.NumberCardField = value
-                    Me.RaisePropertyChanged("NumberCard")
-                End If
-            End Set
-        End Property
-        
-        <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property PasswordUser() As String
-            Get
-                Return Me.PasswordUserField
-            End Get
-            Set
-                If (Object.ReferenceEquals(Me.PasswordUserField, value) <> true) Then
-                    Me.PasswordUserField = value
-                    Me.RaisePropertyChanged("PasswordUser")
-                End If
-            End Set
-        End Property
-        
-        <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property PostalCode() As String
-            Get
-                Return Me.PostalCodeField
-            End Get
-            Set
-                If (Object.ReferenceEquals(Me.PostalCodeField, value) <> true) Then
-                    Me.PostalCodeField = value
-                    Me.RaisePropertyChanged("PostalCode")
-                End If
-            End Set
-        End Property
-        
-        <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property SvcCard() As String
-            Get
-                Return Me.SvcCardField
-            End Get
-            Set
-                If (Object.ReferenceEquals(Me.SvcCardField, value) <> true) Then
-                    Me.SvcCardField = value
-                    Me.RaisePropertyChanged("SvcCard")
-                End If
-            End Set
-        End Property
-        
-        Public Event PropertyChanged As System.ComponentModel.PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-        
-        Protected Sub RaisePropertyChanged(ByVal propertyName As String)
-            Dim propertyChanged As System.ComponentModel.PropertyChangedEventHandler = Me.PropertyChangedEvent
-            If (Not (propertyChanged) Is Nothing) Then
-                propertyChanged(Me, New System.ComponentModel.PropertyChangedEventArgs(propertyName))
-            End If
-        End Sub
-    End Class
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0"),  _
      System.ServiceModel.ServiceContractAttribute(ConfigurationName:="ClientServiceReference.IClientService")>  _
     Public Interface IClientService
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IClientService/insertClient", ReplyAction:="http://tempuri.org/IClientService/insertClientResponse")>  _
-        Function insertClient(ByVal idUser As Integer, ByVal name As String, ByVal lastName_1 As String, ByVal lastName_2 As String, ByVal nameUser As String, ByVal passwordUser As String, ByVal email As String, ByVal numberCard As String, ByVal addressDirection As String, ByVal postalCode As String, ByVal svcCard As String) As Integer
+        Function insertClient(ByVal client As String, ByVal key As String) As String
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IClientService/insertClient", ReplyAction:="http://tempuri.org/IClientService/insertClientResponse")>  _
-        Function insertClientAsync(ByVal idUser As Integer, ByVal name As String, ByVal lastName_1 As String, ByVal lastName_2 As String, ByVal nameUser As String, ByVal passwordUser As String, ByVal email As String, ByVal numberCard As String, ByVal addressDirection As String, ByVal postalCode As String, ByVal svcCard As String) As System.Threading.Tasks.Task(Of Integer)
+        Function insertClientAsync(ByVal client As String, ByVal key As String) As System.Threading.Tasks.Task(Of String)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IClientService/updateClient", ReplyAction:="http://tempuri.org/IClientService/updateClientResponse")>  _
-        Function updateClient(ByVal idUser As Integer, ByVal name As String, ByVal lastName_1 As String, ByVal lastName_2 As String, ByVal nameUser As String, ByVal passwordUser As String, ByVal email As String, ByVal numberCard As String, ByVal addressDirection As String, ByVal postalCode As String, ByVal svcCard As String) As Integer
+        Function updateClient(ByVal client As String, ByVal key As String) As String
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IClientService/updateClient", ReplyAction:="http://tempuri.org/IClientService/updateClientResponse")>  _
-        Function updateClientAsync(ByVal idUser As Integer, ByVal name As String, ByVal lastName_1 As String, ByVal lastName_2 As String, ByVal nameUser As String, ByVal passwordUser As String, ByVal email As String, ByVal numberCard As String, ByVal addressDirection As String, ByVal postalCode As String, ByVal svcCard As String) As System.Threading.Tasks.Task(Of Integer)
+        Function updateClientAsync(ByVal client As String, ByVal key As String) As System.Threading.Tasks.Task(Of String)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IClientService/deleteClient", ReplyAction:="http://tempuri.org/IClientService/deleteClientResponse")>  _
-        Function deleteClient(ByVal idClient As Integer) As Integer
+        Function deleteClient(ByVal idClient As String, ByVal key As String) As String
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IClientService/deleteClient", ReplyAction:="http://tempuri.org/IClientService/deleteClientResponse")>  _
-        Function deleteClientAsync(ByVal idClient As Integer) As System.Threading.Tasks.Task(Of Integer)
+        Function deleteClientAsync(ByVal idClient As String, ByVal key As String) As System.Threading.Tasks.Task(Of String)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IClientService/verifyExistsClient", ReplyAction:="http://tempuri.org/IClientService/verifyExistsClientResponse")>  _
-        Function verifyExistsClient(ByVal nameUser As String, ByVal passwordUser As String) As Integer
+        Function verifyExistsClient(ByVal client As String, ByVal key As String) As String
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IClientService/verifyExistsClient", ReplyAction:="http://tempuri.org/IClientService/verifyExistsClientResponse")>  _
-        Function verifyExistsClientAsync(ByVal nameUser As String, ByVal passwordUser As String) As System.Threading.Tasks.Task(Of Integer)
+        Function verifyExistsClientAsync(ByVal client As String, ByVal key As String) As System.Threading.Tasks.Task(Of String)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IClientService/getClient", ReplyAction:="http://tempuri.org/IClientService/getClientResponse")>  _
-        Function getClient(ByVal nameUser As String) As ClientServiceReference.Client
+        Function getClient(ByVal nameUser As String, ByVal key As String) As String
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IClientService/getClient", ReplyAction:="http://tempuri.org/IClientService/getClientResponse")>  _
-        Function getClientAsync(ByVal nameUser As String) As System.Threading.Tasks.Task(Of ClientServiceReference.Client)
+        Function getClientAsync(ByVal nameUser As String, ByVal key As String) As System.Threading.Tasks.Task(Of String)
     End Interface
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")>  _
@@ -289,44 +80,44 @@ Namespace ClientServiceReference
             MyBase.New(binding, remoteAddress)
         End Sub
         
-        Public Function insertClient(ByVal idUser As Integer, ByVal name As String, ByVal lastName_1 As String, ByVal lastName_2 As String, ByVal nameUser As String, ByVal passwordUser As String, ByVal email As String, ByVal numberCard As String, ByVal addressDirection As String, ByVal postalCode As String, ByVal svcCard As String) As Integer Implements ClientServiceReference.IClientService.insertClient
-            Return MyBase.Channel.insertClient(idUser, name, lastName_1, lastName_2, nameUser, passwordUser, email, numberCard, addressDirection, postalCode, svcCard)
+        Public Function insertClient(ByVal client As String, ByVal key As String) As String Implements ClientServiceReference.IClientService.insertClient
+            Return MyBase.Channel.insertClient(client, key)
         End Function
         
-        Public Function insertClientAsync(ByVal idUser As Integer, ByVal name As String, ByVal lastName_1 As String, ByVal lastName_2 As String, ByVal nameUser As String, ByVal passwordUser As String, ByVal email As String, ByVal numberCard As String, ByVal addressDirection As String, ByVal postalCode As String, ByVal svcCard As String) As System.Threading.Tasks.Task(Of Integer) Implements ClientServiceReference.IClientService.insertClientAsync
-            Return MyBase.Channel.insertClientAsync(idUser, name, lastName_1, lastName_2, nameUser, passwordUser, email, numberCard, addressDirection, postalCode, svcCard)
+        Public Function insertClientAsync(ByVal client As String, ByVal key As String) As System.Threading.Tasks.Task(Of String) Implements ClientServiceReference.IClientService.insertClientAsync
+            Return MyBase.Channel.insertClientAsync(client, key)
         End Function
         
-        Public Function updateClient(ByVal idUser As Integer, ByVal name As String, ByVal lastName_1 As String, ByVal lastName_2 As String, ByVal nameUser As String, ByVal passwordUser As String, ByVal email As String, ByVal numberCard As String, ByVal addressDirection As String, ByVal postalCode As String, ByVal svcCard As String) As Integer Implements ClientServiceReference.IClientService.updateClient
-            Return MyBase.Channel.updateClient(idUser, name, lastName_1, lastName_2, nameUser, passwordUser, email, numberCard, addressDirection, postalCode, svcCard)
+        Public Function updateClient(ByVal client As String, ByVal key As String) As String Implements ClientServiceReference.IClientService.updateClient
+            Return MyBase.Channel.updateClient(client, key)
         End Function
         
-        Public Function updateClientAsync(ByVal idUser As Integer, ByVal name As String, ByVal lastName_1 As String, ByVal lastName_2 As String, ByVal nameUser As String, ByVal passwordUser As String, ByVal email As String, ByVal numberCard As String, ByVal addressDirection As String, ByVal postalCode As String, ByVal svcCard As String) As System.Threading.Tasks.Task(Of Integer) Implements ClientServiceReference.IClientService.updateClientAsync
-            Return MyBase.Channel.updateClientAsync(idUser, name, lastName_1, lastName_2, nameUser, passwordUser, email, numberCard, addressDirection, postalCode, svcCard)
+        Public Function updateClientAsync(ByVal client As String, ByVal key As String) As System.Threading.Tasks.Task(Of String) Implements ClientServiceReference.IClientService.updateClientAsync
+            Return MyBase.Channel.updateClientAsync(client, key)
         End Function
         
-        Public Function deleteClient(ByVal idClient As Integer) As Integer Implements ClientServiceReference.IClientService.deleteClient
-            Return MyBase.Channel.deleteClient(idClient)
+        Public Function deleteClient(ByVal idClient As String, ByVal key As String) As String Implements ClientServiceReference.IClientService.deleteClient
+            Return MyBase.Channel.deleteClient(idClient, key)
         End Function
         
-        Public Function deleteClientAsync(ByVal idClient As Integer) As System.Threading.Tasks.Task(Of Integer) Implements ClientServiceReference.IClientService.deleteClientAsync
-            Return MyBase.Channel.deleteClientAsync(idClient)
+        Public Function deleteClientAsync(ByVal idClient As String, ByVal key As String) As System.Threading.Tasks.Task(Of String) Implements ClientServiceReference.IClientService.deleteClientAsync
+            Return MyBase.Channel.deleteClientAsync(idClient, key)
         End Function
         
-        Public Function verifyExistsClient(ByVal nameUser As String, ByVal passwordUser As String) As Integer Implements ClientServiceReference.IClientService.verifyExistsClient
-            Return MyBase.Channel.verifyExistsClient(nameUser, passwordUser)
+        Public Function verifyExistsClient(ByVal client As String, ByVal key As String) As String Implements ClientServiceReference.IClientService.verifyExistsClient
+            Return MyBase.Channel.verifyExistsClient(client, key)
         End Function
         
-        Public Function verifyExistsClientAsync(ByVal nameUser As String, ByVal passwordUser As String) As System.Threading.Tasks.Task(Of Integer) Implements ClientServiceReference.IClientService.verifyExistsClientAsync
-            Return MyBase.Channel.verifyExistsClientAsync(nameUser, passwordUser)
+        Public Function verifyExistsClientAsync(ByVal client As String, ByVal key As String) As System.Threading.Tasks.Task(Of String) Implements ClientServiceReference.IClientService.verifyExistsClientAsync
+            Return MyBase.Channel.verifyExistsClientAsync(client, key)
         End Function
         
-        Public Function getClient(ByVal nameUser As String) As ClientServiceReference.Client Implements ClientServiceReference.IClientService.getClient
-            Return MyBase.Channel.getClient(nameUser)
+        Public Function getClient(ByVal nameUser As String, ByVal key As String) As String Implements ClientServiceReference.IClientService.getClient
+            Return MyBase.Channel.getClient(nameUser, key)
         End Function
         
-        Public Function getClientAsync(ByVal nameUser As String) As System.Threading.Tasks.Task(Of ClientServiceReference.Client) Implements ClientServiceReference.IClientService.getClientAsync
-            Return MyBase.Channel.getClientAsync(nameUser)
+        Public Function getClientAsync(ByVal nameUser As String, ByVal key As String) As System.Threading.Tasks.Task(Of String) Implements ClientServiceReference.IClientService.getClientAsync
+            Return MyBase.Channel.getClientAsync(nameUser, key)
         End Function
     End Class
 End Namespace

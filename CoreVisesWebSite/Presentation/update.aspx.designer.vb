@@ -59,6 +59,15 @@ Partial Public Class update
     Protected WithEvents uPersonal As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
+    '''hdID control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hdID As Global.System.Web.UI.WebControls.HiddenField
+    
+    '''<summary>
     '''lblFirstName control.
     '''</summary>
     '''<remarks>
@@ -363,6 +372,33 @@ Partial Public Class update
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents exitMessage As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''lblSuccessMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblSuccessMessage As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''wrongMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents wrongMessage As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''lblWrongMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblWrongMessage As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''UpdateProgress1 control.

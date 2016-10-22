@@ -223,16 +223,7 @@
     <None Include="Service References\BrandServiceReference\BrandService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BrandServiceReference\BrandService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\BrandServiceReference\BrandService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Service References\BrandServiceReference\CoreVisesWebSite.BrandServiceReference.Brand.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Service References\ClientServiceReference\ClientService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ClientServiceReference\configuration91.svcinfo" />
@@ -243,18 +234,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
-    <Content Include="Service References\ClientServiceReference\CoreVisesWebSite.ClientServiceReference.Client.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\ClientServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
     <None Include="Service References\PhoneServiceReference\configuration91.svcinfo" />
     <None Include="Service References\PhoneServiceReference\configuration.svcinfo" />
-    <Content Include="Service References\PhoneServiceReference\CoreVisesWebSite.PhoneServiceReference.Phone.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\PhoneServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
@@ -262,6 +247,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\EncryptionMethods.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -407,9 +393,6 @@
     <None Include="Service References\PhoneServiceReference\PhoneService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PhoneServiceReference\PhoneService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -424,6 +407,12 @@
     <WCFMetadataStorage Include="Service References\BrandServiceReference\" />
     <WCFMetadataStorage Include="Service References\ClientServiceReference\" />
     <WCFMetadataStorage Include="Service References\PhoneServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MessageText\MessageText.vbproj">
+      <Project>{86a34133-1738-4369-9afa-773209a6e92f}</Project>
+      <Name>MessageText</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

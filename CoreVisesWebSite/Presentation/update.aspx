@@ -19,6 +19,7 @@
                             <h2>Personal Information</h2>
                             <!-- Nombre -->
                             <div class="form-group">
+                                <asp:HiddenField ID="hdID" runat="server" Value="Nothing"/>
                                 <asp:Label ID="lblFirstName" CssClass="control-label col-sm-2" runat="server"
                                      Text="Name:" AssociatedControlID="txtFirstName"></asp:Label>
                                 <div class="col-sm-10">
@@ -146,7 +147,15 @@
                             <div class="form-group">
                                 <div class="alert alert-success col-sm-offset-2" style="width:42%">
                                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    Successfully updated
+                                    <asp:Label ID="lblSuccessMessage" runat="server"></asp:Label>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="wrongMessage" runat="server">
+                            <div class="form-group">
+                                <div class="alert alert-danger col-sm-offset-2" style="width:42%">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <asp:Label ID="lblWrongMessage" runat="server"></asp:Label>
                                 </div>
                             </div>
                         </div>

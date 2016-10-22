@@ -1,30 +1,68 @@
-﻿Public Class login
+﻿'Importaciones necesarias
+Imports MessageText
+
+Public Class login
     Inherits System.Web.UI.Page
 
+    ' Declaración de variables globales
+    Private encryp As New EncryptionMethods
+    Private excetionMessage As New ExceptionMessage
+    ''' <summary>
+    ''' Función que se ejecuta cuando carga la página
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        MyClass.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None
         wrongMessage.Style.Add("display", "none")
-
         If Not (Request.QueryString("exit") Is Nothing) Then
             Session.Item("condition") = 0
-            Response.Redirect("../index.aspx")
+            Response.Redirect("../index.aspx", True)
         End If
     End Sub
-
+    ''' <summary>
+    ''' Función que se ejecuta cuando se hace clic al botón de LogIn
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e">Corresponde al evento</param>
     Protected Sub btnLogIn_Click(sender As Object, e As EventArgs)
         Dim service As New ClientServiceReference.ClientServiceClient
-        Dim clientTemp As New ClientServiceReference.Client
+        Dim tempString = txtNameUser.Text + ";" + txtPassword.Text
         Dim tempValue As Integer
-        tempValue = service.verifyExistsClient(txtNameUser.Text, txtPassword.Text)
 
+        'Se verifica en el web service que el usuario exista
+        Try
+            tempValue = Integer.Parse(encryp.decrypting(
+                                         service.verifyExistsClient(encryp.encrypt(tempString, txtNameUser.Text), txtNameUser.Text),
+                                         txtNameUser.Text))
+        Catch ex As Exception
+            lblMessage.Text = Me.excetionMessage.notConnectionWS
+            wrongMessage.Style.Add("display", "initial")
+        End Try
+
+        'Si es diferente de 1, es porque el cliente existe
         If (tempValue <> 0) Then
             Session.Item("condition") = 1
-            clientTemp = service.getClient(txtNameUser.Text)
             Session.Add("user", txtNameUser.Text)
-            Session.Add("name", (clientTemp.Name + " " + clientTemp.LastName_1 + " " + clientTemp.LastName_2))
-            wrongMessage.Style.Add("display", "none")
-            MyClass.Response.Redirect("~/Presentation/welcome.aspx")
+            Dim returnString As String = ""
+
+            ' Manejo de excepción al momento de obtener el cliente
+            Try
+                returnString = encryp.decrypting(
+                    (service.getClient(encryp.encrypt(txtNameUser.Text, txtNameUser.Text), txtNameUser.Text)), txtNameUser.Text)
+            Catch ex As Exception
+                lblMessage.Text = Me.excetionMessage.notConnectionWS
+                wrongMessage.Style.Add("display", "initial")
+            End Try
+
+            'Verificamos que returnString no esté vacío
+            If (returnString.Length > 0) Then
+                Dim arrayPhone As Array = returnString.Split(";")
+                Session.Add("name", (arrayPhone(1) + " " + arrayPhone(2) + " " + arrayPhone(3)))
+                wrongMessage.Style.Add("display", "none")
+                MyClass.Response.Redirect("~/Presentation/welcome.aspx", True)
+            End If
         Else
+            lblMessage.Text = Me.excetionMessage.clientNoExist
             wrongMessage.Style.Add("display", "initial")
         End If
     End Sub

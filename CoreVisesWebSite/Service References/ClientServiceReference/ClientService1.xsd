@@ -1,80 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://25.45.62.52/Services/ClientService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Domain" />
   <xs:element name="insertClient">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="idUser" type="xs:int" />
-        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="lastName_1" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="lastName_2" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="nameUser" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="passwordUser" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="numberCard" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="addressDirection" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="postalCode" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="svcCard" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="client" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="insertClientResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="insertClientResult" type="xs:int" />
+        <xs:element minOccurs="0" name="insertClientResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="updateClient">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="idUser" type="xs:int" />
-        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="lastName_1" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="lastName_2" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="nameUser" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="passwordUser" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="numberCard" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="addressDirection" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="postalCode" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="svcCard" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="client" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="updateClientResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="updateClientResult" type="xs:int" />
+        <xs:element minOccurs="0" name="updateClientResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="deleteClient">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="idClient" type="xs:int" />
+        <xs:element minOccurs="0" name="idClient" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="deleteClientResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="deleteClientResult" type="xs:int" />
+        <xs:element minOccurs="0" name="deleteClientResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="verifyExistsClient">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nameUser" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="passwordUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="client" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="verifyExistsClientResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="verifyExistsClientResult" type="xs:int" />
+        <xs:element minOccurs="0" name="verifyExistsClientResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -82,13 +64,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nameUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getClientResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="getClientResult" nillable="true" type="q1:Client" />
+        <xs:element minOccurs="0" name="getClientResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

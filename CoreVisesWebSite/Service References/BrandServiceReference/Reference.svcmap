@@ -23,7 +23,6 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="BrandService.xsd" MetadataType="Schema" ID="1a04b806-6ddb-4b22-ae5c-f76994ae8fff" SourceId="1" SourceUrl="http://25.45.62.52/Services/BrandService.svc?xsd=xsd0" />
-    <MetadataFile FileName="BrandService1.xsd" MetadataType="Schema" ID="e8f26760-5f38-412b-9f4c-247993b7d9de" SourceId="1" SourceUrl="http://25.45.62.52/Services/BrandService.svc?xsd=xsd2" />
     <MetadataFile FileName="BrandService.wsdl" MetadataType="Wsdl" ID="931ed0d6-c6b2-488a-b000-de05495bc61b" SourceId="1" SourceUrl="http://25.45.62.52/Services/BrandService.svc?wsdl" />
     <MetadataFile FileName="BrandService2.xsd" MetadataType="Schema" ID="ae0b7ef7-0aaf-47eb-b755-f86b8aa85995" SourceId="1" SourceUrl="http://25.45.62.52/Services/BrandService.svc?xsd=xsd1" />
   </Metadata>

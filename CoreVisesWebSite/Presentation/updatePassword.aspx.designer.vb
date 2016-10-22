@@ -122,6 +122,33 @@ Partial Public Class updatePassword
     Protected WithEvents exitMessage As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
+    '''lblSuccessMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblSuccessMessage As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''wrongMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents wrongMessage As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''lblWrongMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblWrongMessage As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''UpdateProgress1 control.
     '''</summary>
     '''<remarks>

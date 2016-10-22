@@ -11,107 +11,42 @@
 Option Strict On
 Option Explicit On
 
-Imports System
-Imports System.Runtime.Serialization
 
 Namespace BrandServiceReference
-    
-    <System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
-     System.Runtime.Serialization.DataContractAttribute(Name:="Brand", [Namespace]:="http://schemas.datacontract.org/2004/07/Domain"),  _
-     System.SerializableAttribute()>  _
-    Partial Public Class Brand
-        Inherits Object
-        Implements System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
-        
-        <System.NonSerializedAttribute()>  _
-        Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
-        
-        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private IdBrandField As Integer
-        
-        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private NameField As String
-        
-        <Global.System.ComponentModel.BrowsableAttribute(false)>  _
-        Public Property ExtensionData() As System.Runtime.Serialization.ExtensionDataObject Implements System.Runtime.Serialization.IExtensibleDataObject.ExtensionData
-            Get
-                Return Me.extensionDataField
-            End Get
-            Set
-                Me.extensionDataField = value
-            End Set
-        End Property
-        
-        <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property IdBrand() As Integer
-            Get
-                Return Me.IdBrandField
-            End Get
-            Set
-                If (Me.IdBrandField.Equals(value) <> true) Then
-                    Me.IdBrandField = value
-                    Me.RaisePropertyChanged("IdBrand")
-                End If
-            End Set
-        End Property
-        
-        <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property Name() As String
-            Get
-                Return Me.NameField
-            End Get
-            Set
-                If (Object.ReferenceEquals(Me.NameField, value) <> true) Then
-                    Me.NameField = value
-                    Me.RaisePropertyChanged("Name")
-                End If
-            End Set
-        End Property
-        
-        Public Event PropertyChanged As System.ComponentModel.PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-        
-        Protected Sub RaisePropertyChanged(ByVal propertyName As String)
-            Dim propertyChanged As System.ComponentModel.PropertyChangedEventHandler = Me.PropertyChangedEvent
-            If (Not (propertyChanged) Is Nothing) Then
-                propertyChanged(Me, New System.ComponentModel.PropertyChangedEventArgs(propertyName))
-            End If
-        End Sub
-    End Class
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0"),  _
      System.ServiceModel.ServiceContractAttribute(ConfigurationName:="BrandServiceReference.IBrandService")>  _
     Public Interface IBrandService
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBrandService/insertBrand", ReplyAction:="http://tempuri.org/IBrandService/insertBrandResponse")>  _
-        Function insertBrand(ByVal idBrand As Integer, ByVal name As String) As Integer
+        Function insertBrand(ByVal idBrand As String, ByVal name As String, ByVal key As String) As String
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBrandService/insertBrand", ReplyAction:="http://tempuri.org/IBrandService/insertBrandResponse")>  _
-        Function insertBrandAsync(ByVal idBrand As Integer, ByVal name As String) As System.Threading.Tasks.Task(Of Integer)
+        Function insertBrandAsync(ByVal idBrand As String, ByVal name As String, ByVal key As String) As System.Threading.Tasks.Task(Of String)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBrandService/updateBrand", ReplyAction:="http://tempuri.org/IBrandService/updateBrandResponse")>  _
-        Function updateBrand(ByVal idBrand As Integer, ByVal name As String) As Integer
+        Function updateBrand(ByVal idBrand As String, ByVal name As String, ByVal key As String) As String
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBrandService/updateBrand", ReplyAction:="http://tempuri.org/IBrandService/updateBrandResponse")>  _
-        Function updateBrandAsync(ByVal idBrand As Integer, ByVal name As String) As System.Threading.Tasks.Task(Of Integer)
+        Function updateBrandAsync(ByVal idBrand As String, ByVal name As String, ByVal key As String) As System.Threading.Tasks.Task(Of String)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBrandService/deleteBrand", ReplyAction:="http://tempuri.org/IBrandService/deleteBrandResponse")>  _
-        Function deleteBrand(ByVal idBrand As Integer) As Integer
+        Function deleteBrand(ByVal idBrand As String, ByVal key As String) As String
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBrandService/deleteBrand", ReplyAction:="http://tempuri.org/IBrandService/deleteBrandResponse")>  _
-        Function deleteBrandAsync(ByVal idBrand As Integer) As System.Threading.Tasks.Task(Of Integer)
+        Function deleteBrandAsync(ByVal idBrand As String, ByVal key As String) As System.Threading.Tasks.Task(Of String)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBrandService/getAllBrands", ReplyAction:="http://tempuri.org/IBrandService/getAllBrandsResponse")>  _
-        Function getAllBrands() As String
+        Function getAllBrands(ByVal key As String) As String
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBrandService/getAllBrands", ReplyAction:="http://tempuri.org/IBrandService/getAllBrandsResponse")>  _
-        Function getAllBrandsAsync() As System.Threading.Tasks.Task(Of String)
+        Function getAllBrandsAsync(ByVal key As String) As System.Threading.Tasks.Task(Of String)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBrandService/getBrandById", ReplyAction:="http://tempuri.org/IBrandService/getBrandByIdResponse")>  _
-        Function getBrandById(ByVal idBrand As Integer) As BrandServiceReference.Brand
+        Function getBrandById(ByVal idBrand As String, ByVal key As String) As String
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBrandService/getBrandById", ReplyAction:="http://tempuri.org/IBrandService/getBrandByIdResponse")>  _
-        Function getBrandByIdAsync(ByVal idBrand As Integer) As System.Threading.Tasks.Task(Of BrandServiceReference.Brand)
+        Function getBrandByIdAsync(ByVal idBrand As String, ByVal key As String) As System.Threading.Tasks.Task(Of String)
     End Interface
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")>  _
@@ -145,44 +80,44 @@ Namespace BrandServiceReference
             MyBase.New(binding, remoteAddress)
         End Sub
         
-        Public Function insertBrand(ByVal idBrand As Integer, ByVal name As String) As Integer Implements BrandServiceReference.IBrandService.insertBrand
-            Return MyBase.Channel.insertBrand(idBrand, name)
+        Public Function insertBrand(ByVal idBrand As String, ByVal name As String, ByVal key As String) As String Implements BrandServiceReference.IBrandService.insertBrand
+            Return MyBase.Channel.insertBrand(idBrand, name, key)
         End Function
         
-        Public Function insertBrandAsync(ByVal idBrand As Integer, ByVal name As String) As System.Threading.Tasks.Task(Of Integer) Implements BrandServiceReference.IBrandService.insertBrandAsync
-            Return MyBase.Channel.insertBrandAsync(idBrand, name)
+        Public Function insertBrandAsync(ByVal idBrand As String, ByVal name As String, ByVal key As String) As System.Threading.Tasks.Task(Of String) Implements BrandServiceReference.IBrandService.insertBrandAsync
+            Return MyBase.Channel.insertBrandAsync(idBrand, name, key)
         End Function
         
-        Public Function updateBrand(ByVal idBrand As Integer, ByVal name As String) As Integer Implements BrandServiceReference.IBrandService.updateBrand
-            Return MyBase.Channel.updateBrand(idBrand, name)
+        Public Function updateBrand(ByVal idBrand As String, ByVal name As String, ByVal key As String) As String Implements BrandServiceReference.IBrandService.updateBrand
+            Return MyBase.Channel.updateBrand(idBrand, name, key)
         End Function
         
-        Public Function updateBrandAsync(ByVal idBrand As Integer, ByVal name As String) As System.Threading.Tasks.Task(Of Integer) Implements BrandServiceReference.IBrandService.updateBrandAsync
-            Return MyBase.Channel.updateBrandAsync(idBrand, name)
+        Public Function updateBrandAsync(ByVal idBrand As String, ByVal name As String, ByVal key As String) As System.Threading.Tasks.Task(Of String) Implements BrandServiceReference.IBrandService.updateBrandAsync
+            Return MyBase.Channel.updateBrandAsync(idBrand, name, key)
         End Function
         
-        Public Function deleteBrand(ByVal idBrand As Integer) As Integer Implements BrandServiceReference.IBrandService.deleteBrand
-            Return MyBase.Channel.deleteBrand(idBrand)
+        Public Function deleteBrand(ByVal idBrand As String, ByVal key As String) As String Implements BrandServiceReference.IBrandService.deleteBrand
+            Return MyBase.Channel.deleteBrand(idBrand, key)
         End Function
         
-        Public Function deleteBrandAsync(ByVal idBrand As Integer) As System.Threading.Tasks.Task(Of Integer) Implements BrandServiceReference.IBrandService.deleteBrandAsync
-            Return MyBase.Channel.deleteBrandAsync(idBrand)
+        Public Function deleteBrandAsync(ByVal idBrand As String, ByVal key As String) As System.Threading.Tasks.Task(Of String) Implements BrandServiceReference.IBrandService.deleteBrandAsync
+            Return MyBase.Channel.deleteBrandAsync(idBrand, key)
         End Function
         
-        Public Function getAllBrands() As String Implements BrandServiceReference.IBrandService.getAllBrands
-            Return MyBase.Channel.getAllBrands
+        Public Function getAllBrands(ByVal key As String) As String Implements BrandServiceReference.IBrandService.getAllBrands
+            Return MyBase.Channel.getAllBrands(key)
         End Function
         
-        Public Function getAllBrandsAsync() As System.Threading.Tasks.Task(Of String) Implements BrandServiceReference.IBrandService.getAllBrandsAsync
-            Return MyBase.Channel.getAllBrandsAsync
+        Public Function getAllBrandsAsync(ByVal key As String) As System.Threading.Tasks.Task(Of String) Implements BrandServiceReference.IBrandService.getAllBrandsAsync
+            Return MyBase.Channel.getAllBrandsAsync(key)
         End Function
         
-        Public Function getBrandById(ByVal idBrand As Integer) As BrandServiceReference.Brand Implements BrandServiceReference.IBrandService.getBrandById
-            Return MyBase.Channel.getBrandById(idBrand)
+        Public Function getBrandById(ByVal idBrand As String, ByVal key As String) As String Implements BrandServiceReference.IBrandService.getBrandById
+            Return MyBase.Channel.getBrandById(idBrand, key)
         End Function
         
-        Public Function getBrandByIdAsync(ByVal idBrand As Integer) As System.Threading.Tasks.Task(Of BrandServiceReference.Brand) Implements BrandServiceReference.IBrandService.getBrandByIdAsync
-            Return MyBase.Channel.getBrandByIdAsync(idBrand)
+        Public Function getBrandByIdAsync(ByVal idBrand As String, ByVal key As String) As System.Threading.Tasks.Task(Of String) Implements BrandServiceReference.IBrandService.getBrandByIdAsync
+            Return MyBase.Channel.getBrandByIdAsync(idBrand, key)
         End Function
     End Class
 End Namespace

@@ -47,7 +47,15 @@
                             <div class="form-group">
                                 <div class="alert alert-success col-sm-offset-2" style="width:42%">
                                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    Successfully updated
+                                    <asp:Label ID="lblSuccessMessage" runat="server"></asp:Label>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="wrongMessage" runat="server">
+                            <div class="form-group">
+                                <div class="alert alert-danger col-sm-offset-2" style="width:42%">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <asp:Label ID="lblWrongMessage" runat="server"></asp:Label>
                                 </div>
                             </div>
                         </div>

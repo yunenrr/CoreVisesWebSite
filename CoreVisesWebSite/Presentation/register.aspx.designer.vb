@@ -419,6 +419,15 @@ Partial Public Class register
     Protected WithEvents wrongMessage As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
+    '''lblMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMessage As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''UpdateProgress1 control.
     '''</summary>
     '''<remarks>
