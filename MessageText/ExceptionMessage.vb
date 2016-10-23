@@ -37,4 +37,9 @@
         Me.message = "The client already exists in the system."
         Return Me.message
     End Function
+
+    Public Function phoneNoExist() As String
+        Me.message = "There are no cell with these characteristics."
+        Return Me.message
+    End Function
 End Class

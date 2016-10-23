@@ -95,6 +95,24 @@ Partial Public Class allProducts
     Protected WithEvents ddlNetworkMode As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
+    '''UpdateProgress1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdateProgress1 As Global.System.Web.UI.UpdateProgress
+    
+    '''<summary>
+    '''ulItems control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ulItems As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
     '''wrongMessage control.
     '''</summary>
     '''<remarks>
@@ -111,13 +129,4 @@ Partial Public Class allProducts
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblWrongMessage As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''UpdateProgress1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents UpdateProgress1 As Global.System.Web.UI.UpdateProgress
 End Class

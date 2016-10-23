@@ -18,18 +18,18 @@ Public Class allProducts
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         wrongMessage.Style.Add("display", "none")
 
+        'Preguntamos si el mae está o no logueado
+        If Session.Item("user") Is Nothing Then
+            Me.key = "None"
+        Else
+            Me.key = CType(Session("user"), String)
+        End If
+
         'Pregunta que si es la primera ves en entrar
         If Not IsPostBack Then
             Dim servicebrand As New BrandServiceReference.BrandServiceClient
             Dim temp As String = ""
             Me.priceDollar = CType(Session("dollar"), Double)
-
-            'Preguntamos si el mae está o no logueado
-            If Session.Item("user") Is Nothing Then
-                Me.key = "None"
-            Else
-                Me.key = CType(Session("user"), String)
-            End If
 
             'Manejo de excepciones al momento de recibir todas las marcas
             Try
@@ -58,12 +58,13 @@ Public Class allProducts
     ''' Función que se encarga de mostrar todos los celulares del Web Service
     ''' </summary>
     ''' <returns></returns>
-    Public Function GetDivPhone()
+    Public Function getDivPhone() As String
         ' Declaraciones
         Dim servicePhone As New PhoneServiceReference.PhoneServiceClient
         Dim cont As Integer = 1
         'Dim temp As String = servicePhone.getPhones(CType(Session("user"), String))
         Dim temp As String = ""
+        Dim allPhone As String = ""
 
         'Manejo de excepciones al momento de obtener todos los celulares
         Try
@@ -81,22 +82,27 @@ Public Class allProducts
             For Each phoneT As String In phones
                 Dim currentPhone As Array = phoneT.Split(";")
                 If (currentPhone(0).ToString.Length > 0) Then
-                    If cont < 3 Then
-                        Response.Write(WritePhone("simpleCart_shelfItem",
-                                                currentPhone(2) + " " + currentPhone(1),
-                                                currentPhone(3), currentPhone(12),
-                                                currentPhone(10), currentPhone(0)))
-                    Else
-                        Response.Write(WritePhone("last simpleCart_shelfItem",
-                                                currentPhone(2) + " " + currentPhone(1),
-                                                currentPhone(3), currentPhone(12),
-                                                currentPhone(10), currentPhone(0)))
-                        cont = 0
+
+                    'Verificamos con las funcionalidades especificades por el cliente
+                    If (Me.filter(currentPhone)) Then
+                        If cont < 3 Then
+                            allPhone = allPhone & writePhone("simpleCart_shelfItem",
+                                                    currentPhone(2) + " " + currentPhone(1),
+                                                    currentPhone(3), currentPhone(12),
+                                                    currentPhone(10), currentPhone(0))
+                        Else
+                            allPhone = allPhone & writePhone("last simpleCart_shelfItem",
+                                                    currentPhone(2) + " " + currentPhone(1),
+                                                    currentPhone(3), currentPhone(12),
+                                                    currentPhone(10), currentPhone(0))
+                            cont = 0
+                        End If
+                        cont = cont + 1
                     End If
-                    cont = cont + 1
                 End If
             Next
         End If
+        Return allPhone
     End Function
     ''' <summary>
     ''' Función que se encarga de devolvernos varios elementos HTML, los cuales contienen el celular
@@ -110,7 +116,7 @@ Public Class allProducts
     ''' <returns>
     ''' Un String que se va aplicar como código HTML dentro de la página ASPX
     ''' </returns>
-    Public Function WritePhone(ccsClass As String, brandModel As String, os As String, urlImage As String, price As String, id As String) As String
+    Public Function writePhone(ccsClass As String, brandModel As String, os As String, urlImage As String, price As String, id As String) As String
         Dim temp As String
 
         temp = "<li class='" + ccsClass + "'>
@@ -151,37 +157,71 @@ Public Class allProducts
         Dim temp As Double = (priceC / Me.priceDollar)
         Return FormatNumber(temp, 2).ToString
     End Function
-
-    ' Realiza todos los filtros indicados
+    ''' <summary>
+    ''' Se encarga de realizar los filtros necesarios
+    ''' </summary>
+    ''' <param name="currentPhone"></param>
+    ''' <returns></returns>
     Private Function filter(currentPhone As Array) As Boolean
-        If ddlOS.SelectedValue IsNot "Select" Then
-            If currentPhone(3) IsNot ddlOS.SelectedValue Then
-                Return False
-            End If
-        End If
-        If ddlBrand.SelectedValue IsNot "Select" Then
-            If currentPhone(2) IsNot ddlBrand.SelectedValue Then
-                Return False
-            End If
-        End If
-        If ddlNetworkMode.SelectedValue IsNot "Select" Then
-            If currentPhone(4) IsNot ddlNetworkMode.SelectedValue Then
-                Return False
-            End If
-        End If
+        Dim flag As Boolean = True
 
-        Return True
+        If Not (ddlOS.SelectedValue Like "Select") Then
+            If Not (currentPhone(3).ToString.ToUpper Like ddlOS.SelectedValue.ToString.ToUpper) Then
+                flag = False
+            End If
+        End If
+        If Not (ddlBrand.SelectedValue Like "Select") Then
+            If Not (currentPhone(2).ToString.ToUpper Like ddlBrand.SelectedValue.ToString.ToUpper) Then
+                flag = False
+            End If
+        End If
+        If Not (ddlNetworkMode.SelectedValue Like "Select") Then
+            If (currentPhone(4).ToString.ToUpper Like ddlNetworkMode.SelectedValue.ToString.ToUpper) Then
+                flag = False
+            End If
+        End If
+        Return flag
     End Function
-
+    ''' <summary>
+    ''' Función que se ejecuta cuando se cambia el SO
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Protected Sub ddlOS_SelectedIndexChanged(sender As Object, e As EventArgs)
-        GetDivPhone()
-    End Sub
+        wrongMessage.Style.Add("display", "none")
+        ulItems.InnerHtml = Me.getDivPhone()
 
+        If (ulItems.InnerHtml.ToString().Length() = 0) Then
+            lblWrongMessage.Text = Me.exceptionMessage.phoneNoExist
+            wrongMessage.Style.Add("display", "initial")
+        End If
+    End Sub
+    ''' <summary>
+    ''' Función que se ejecuta cuando se cambia la marca
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Protected Sub ddlBrand_SelectedIndexChanged(sender As Object, e As EventArgs)
-        GetDivPhone()
-    End Sub
+        wrongMessage.Style.Add("display", "none")
+        ulItems.InnerHtml = Me.getDivPhone()
 
+        If (ulItems.InnerHtml.ToString().Length() = 0) Then
+            lblWrongMessage.Text = Me.exceptionMessage.phoneNoExist
+            wrongMessage.Style.Add("display", "initial")
+        End If
+    End Sub
+    ''' <summary>
+    ''' Función que se ejecuta cuando se cambia la red
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Protected Sub ddlNetworkMode_SelectedIndexChanged(sender As Object, e As EventArgs)
-        GetDivPhone()
+        wrongMessage.Style.Add("display", "none")
+        ulItems.InnerHtml = Me.getDivPhone()
+
+        If (ulItems.InnerHtml.ToString().Length() = 0) Then
+            lblWrongMessage.Text = Me.exceptionMessage.phoneNoExist
+            wrongMessage.Style.Add("display", "initial")
+        End If
     End Sub
 End Class

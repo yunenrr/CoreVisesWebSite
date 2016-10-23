@@ -17,7 +17,7 @@
                             <div class="form-group">
                                 <asp:Label ID="lblOS" CssClass="control-label col-sm-2" runat="server"
                                     Text="OS:" AssociatedControlID="ddlOS"></asp:Label>
-                                <asp:DropDownList ID="ddlOS" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlOS_SelectedIndexChanged">
+                                <asp:DropDownList ID="ddlOS" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlOS_SelectedIndexChanged">
                                     <asp:ListItem Value="Select">Select</asp:ListItem>
                                     <asp:ListItem Value="Android">Android</asp:ListItem>
                                     <asp:ListItem Value="iOS">iOS</asp:ListItem>
@@ -27,27 +27,37 @@
                             <div class="form-group">
                                 <asp:Label ID="lblBrand" CssClass="control-label col-sm-2" runat="server"
                                     Text="Brand:" AssociatedControlID="ddlBrand"></asp:Label>
-                                <asp:DropDownList ID="ddlBrand" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlBrand_SelectedIndexChanged">
+                                <asp:DropDownList ID="ddlBrand" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlBrand_SelectedIndexChanged">
                                     <asp:ListItem Value="Select">Select</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                             <div class="form-group">
                                 <asp:Label ID="lblNetworkMode" CssClass="control-label col-sm-2" runat="server"
-                                    Text="Brand:" AssociatedControlID="ddlOS"></asp:Label>
-                                <asp:DropDownList ID="ddlNetworkMode" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlNetworkMode_SelectedIndexChanged">
+                                    Text="Net:" AssociatedControlID="ddlNetworkMode"></asp:Label>
+                                <asp:DropDownList ID="ddlNetworkMode" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlNetworkMode_SelectedIndexChanged">
                                     <asp:ListItem Value="Select">Select</asp:ListItem>
                                     <asp:ListItem Value="2G">2G</asp:ListItem>
                                     <asp:ListItem Value="3G">3G</asp:ListItem>
                                     <asp:ListItem Value="4G">4G</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
+                            <div class="form-group">
+                                <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                                    <ProgressTemplate>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </div>
+                                    </ProgressTemplate>
+                                </asp:UpdateProgress>
+                            </div>
                         </div><!-- Fin del menú que aparece en la izquierda / col-md-4 sidebar_men -->
-
                         <div class="col-md-8 mens_right">
                             <div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid">
                                 <div class="clearfix"></div>
-                                <ul>
-                                    <% GetDivPhone() %>
+                                <ul id="ulItems" runat="server">
                                 </ul>
                             </div>
                             <div id="wrongMessage" runat="server">
@@ -63,16 +73,6 @@
                         </div><!-- Fin del div col-md-8 mens_right -->
                     </ContentTemplate>
                 </asp:UpdatePanel>
-                <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
-                    <ProgressTemplate>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                        </div>
-                    </ProgressTemplate>
-                </asp:UpdateProgress>
             </form>
     </div> <!-- Fin del div container -->
    </div><!-- Fin del div men -->
