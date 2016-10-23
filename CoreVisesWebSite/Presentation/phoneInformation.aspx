@@ -42,7 +42,7 @@
                                 <h1><asp:Label ID="lblModelBran" runat="server"></asp:Label></h1>
                                 <p class="availability">Availability: <span class="color">In stock</span></p>
                                 <div class="price_single">
-                                    <span class="item_price actual">$120.00</span>
+                                    <span class="item_price actual"><asp:Label ID="lblPriceDollar" runat="server"></span>
                                     <span class="item_price actual"><asp:Label ID="lblPriceColon" runat="server"></asp:Label></span>
                                 </div>
                                 <h2 class="quick">OS: <asp:Label ID="lblOS" runat="server"></asp:Label></h2>

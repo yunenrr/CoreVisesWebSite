@@ -9,6 +9,7 @@ Public Class phoneInformation
     Private url As String
     Private key As String
     Private exceptionMessage As New ExceptionMessage
+    Private priceDollar As Double
 
     ''' <summary>
     ''' Función constructora
@@ -19,6 +20,7 @@ Public Class phoneInformation
         wrongMessage.Style.Add("display", "none")
         dontSelect.Style.Add("display", "none")
         yesSelect.Style.Add("display", "none")
+        Me.priceDollar = CType(Session("dollar"), Double)
 
         'Verificamos que el cliente haya seleccionado un ID válido
         If Not (Request.QueryString("id") Is Nothing) Then
@@ -54,7 +56,8 @@ Public Class phoneInformation
                 lblPixels.Text = arrayPhone(7)
                 lblFlash.Text = arrayPhone(8)
                 lblResolution.Text = arrayPhone(9)
-                lblPriceColon.Text = "₡" + (Double.Parse(arrayPhone(10))).ToString
+                lblPriceColon.Text = "₡" + FormatNumber(Double.Parse(arrayPhone(10)), 2).ToString
+                lblPriceDollar.Text = "$" + Me.calculatePriceDollars(arrayPhone(10))
                 Me.url = arrayPhone(12)
                 dontSelect.Style.Add("display", "none")
                 yesSelect.Style.Add("display", "initial")
@@ -76,5 +79,17 @@ Public Class phoneInformation
                         <img src='" + Me.url + "' />
                     </li>"
         Response.Write(temp)
+    End Function
+    ''' <summary>
+    ''' Función que nos permite pasar el precio de colones a dolares
+    ''' </summary>
+    ''' <param name="priceCollons">Corresponde al precio en colones</param>
+    ''' <returns>
+    ''' Un String con el precio en dolares
+    ''' </returns>
+    Private Function calculatePriceDollars(priceCollons As String) As String
+        Dim priceC As Double = Double.Parse(priceCollons)
+        Dim temp As Double = (priceC / Me.priceDollar)
+        Return FormatNumber(temp, 2).ToString
     End Function
 End Class

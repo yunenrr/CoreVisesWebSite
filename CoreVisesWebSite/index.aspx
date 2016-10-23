@@ -42,13 +42,6 @@
                         <div class="clearfix"></div>
                     </div> <!-- DIV de todo el botón del carrito -->
                     <div class="header_top_right">
-                        <div class="lang_list">
-                            <select tabindex="4" class="dropdown">
-					            <option value="0" class="label">₡ Colon</option>
-					            <option value="1">$ Dollar</option>
-					            <option value="2">₡ Colon</option>
-				            </select>
-			            </div>
                         <ul class="header_user_info">
                             <i class="user"> </i>
                             <li class="user_desc">

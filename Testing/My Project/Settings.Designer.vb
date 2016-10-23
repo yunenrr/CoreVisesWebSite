@@ -59,9 +59,9 @@ Namespace My
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
          Global.System.Configuration.DefaultSettingValueAttribute("http://indicadoreseconomicos.bccr.fi.cr/indicadoreseconomicos/WebServices/wsIndic"& _ 
             "adoresEconomicos.asmx")>  _
-        Public ReadOnly Property CoreVisesWebSite_cr_fi_bccr_indicadoreseconomicos_wsIndicadoresEconomicos() As String
+        Public ReadOnly Property Testing_cr_fi_bccr_indicadoreseconomicos_wsIndicadoresEconomicos() As String
             Get
-                Return CType(Me("CoreVisesWebSite_cr_fi_bccr_indicadoreseconomicos_wsIndicadoresEconomicos"),String)
+                Return CType(Me("Testing_cr_fi_bccr_indicadoreseconomicos_wsIndicadoresEconomicos"),String)
             End Get
         End Property
     End Class
@@ -75,9 +75,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.CoreVisesWebSite.My.MySettings
+        Friend ReadOnly Property Settings() As Global.Testing.My.MySettings
             Get
-                Return Global.CoreVisesWebSite.My.MySettings.Default
+                Return Global.Testing.My.MySettings.Default
             End Get
         End Property
     End Module

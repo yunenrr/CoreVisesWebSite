@@ -59,6 +59,15 @@ Partial Public Class phoneInformation
     Protected WithEvents lblModelBran As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''lblPriceDollar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblPriceDollar As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''lblPriceColon control.
     '''</summary>
     '''<remarks>

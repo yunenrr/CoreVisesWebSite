@@ -8,6 +8,7 @@ Public Class allProducts
     Private encryp As New EncryptionMethods
     Private exceptionMessage As New ExceptionMessage
     Private key As String
+    Private priceDollar As Double
 
     ''' <summary>
     ''' Función constructora
@@ -21,6 +22,7 @@ Public Class allProducts
         If Not IsPostBack Then
             Dim servicebrand As New BrandServiceReference.BrandServiceClient
             Dim temp As String = ""
+            Me.priceDollar = CType(Session("dollar"), Double)
 
             'Preguntamos si el mae está o no logueado
             If Session.Item("user") Is Nothing Then
@@ -125,7 +127,8 @@ Public Class allProducts
                                 <div class='product_container'>
                                     <h4>" + brandModel + "</h4>
                                     <p>" + os + "</p>
-                                    <div class='price mount item_price'>$" + price + "</div>
+                                    <div class='price mount item_price'>₡" + FormatNumber(Double.Parse(price), 2).ToString + "</div>
+                                    <div class='price mount item_price'>$" + Me.calculatePriceDollars(price) + "</div>
                                     <a class='button item_add cbp-vm-icon cbp-vm-add' href='#'>Add to cart</a>
                                 </div>		
                             </div>
@@ -136,6 +139,19 @@ Public Class allProducts
 
         Return temp
     End Function
+    ''' <summary>
+    ''' Función que nos permite pasar el precio de colones a dolares
+    ''' </summary>
+    ''' <param name="priceCollons">Corresponde al precio en colones</param>
+    ''' <returns>
+    ''' Un String con el precio en dolares
+    ''' </returns>
+    Private Function calculatePriceDollars(priceCollons As String) As String
+        Dim priceC As Double = Double.Parse(priceCollons)
+        Dim temp As Double = (priceC / Me.priceDollar)
+        Return FormatNumber(temp, 2).ToString
+    End Function
+
     ' Realiza todos los filtros indicados
     Private Function filter(currentPhone As Array) As Boolean
         If ddlOS.SelectedValue IsNot "Select" Then
