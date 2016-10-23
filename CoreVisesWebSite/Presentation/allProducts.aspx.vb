@@ -52,6 +52,23 @@ Public Class allProducts
                     End If
                 Next
             End If
+
+            'Verificamos si el cliente eligió un SO en el index
+            If (Request.QueryString("os") Is Nothing) Then
+                Me.updatePanelPhone()
+            Else
+                Select Case (Request.QueryString("os"))
+                    Case "Android"
+                        ddlOS.Items.FindByText("Android").Selected = True
+                    Case "iOS"
+                        ddlOS.Items.FindByText("iOS").Selected = True
+                    Case "Windows"
+                        ddlOS.Items.FindByText("Windows Phone").Selected = True
+                    Case Else
+                        ddlOS.Items.FindByText("Select").Selected = True
+                End Select
+                Me.updatePanelPhone()
+            End If
         End If
     End Sub
     ''' <summary>
@@ -116,7 +133,7 @@ Public Class allProducts
     ''' <returns>
     ''' Un String que se va aplicar como código HTML dentro de la página ASPX
     ''' </returns>
-    Public Function writePhone(ccsClass As String, brandModel As String, os As String, urlImage As String, price As String, id As String) As String
+    Private Function writePhone(ccsClass As String, brandModel As String, os As String, urlImage As String, price As String, id As String) As String
         Dim temp As String
 
         temp = "<li class='" + ccsClass + "'>
@@ -188,13 +205,7 @@ Public Class allProducts
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Protected Sub ddlOS_SelectedIndexChanged(sender As Object, e As EventArgs)
-        wrongMessage.Style.Add("display", "none")
-        ulItems.InnerHtml = Me.getDivPhone()
-
-        If (ulItems.InnerHtml.ToString().Length() = 0) Then
-            lblWrongMessage.Text = Me.exceptionMessage.phoneNoExist
-            wrongMessage.Style.Add("display", "initial")
-        End If
+        Me.updatePanelPhone()
     End Sub
     ''' <summary>
     ''' Función que se ejecuta cuando se cambia la marca
@@ -202,13 +213,7 @@ Public Class allProducts
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Protected Sub ddlBrand_SelectedIndexChanged(sender As Object, e As EventArgs)
-        wrongMessage.Style.Add("display", "none")
-        ulItems.InnerHtml = Me.getDivPhone()
-
-        If (ulItems.InnerHtml.ToString().Length() = 0) Then
-            lblWrongMessage.Text = Me.exceptionMessage.phoneNoExist
-            wrongMessage.Style.Add("display", "initial")
-        End If
+        Me.updatePanelPhone()
     End Sub
     ''' <summary>
     ''' Función que se ejecuta cuando se cambia la red
@@ -216,6 +221,13 @@ Public Class allProducts
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Protected Sub ddlNetworkMode_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Me.updatePanelPhone()
+    End Sub
+    ''' <summary>
+    ''' Función que se encarga de actualizar el panel de los celulares
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function updatePanelPhone()
         wrongMessage.Style.Add("display", "none")
         ulItems.InnerHtml = Me.getDivPhone()
 
@@ -223,5 +235,5 @@ Public Class allProducts
             lblWrongMessage.Text = Me.exceptionMessage.phoneNoExist
             wrongMessage.Style.Add("display", "initial")
         End If
-    End Sub
+    End Function
 End Class
