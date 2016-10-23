@@ -50,6 +50,14 @@
                                     <% GetDivPhone() %>
                                 </ul>
                             </div>
+                            <div id="wrongMessage" runat="server">
+                                <div class="form-group">
+                                    <div class="alert alert-danger col-sm-offset-2" style="width:42%">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        <asp:Label ID="lblWrongMessage" runat="server"></asp:Label>
+                                    </div>
+                                </div>
+                            </div>
 				            <script src="../js/cbpViewModeSwitch.js" type="text/javascript"></script>
                             <script src="../js/classie.js" type="text/javascript"></script>
                         </div><!-- Fin del div col-md-8 mens_right -->

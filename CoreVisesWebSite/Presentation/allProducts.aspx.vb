@@ -1,8 +1,13 @@
-﻿Public Class allProducts
+﻿'Importaciones necesarias
+Imports MessageText
+
+Public Class allProducts
     Inherits System.Web.UI.Page
 
-    ' Declaración de variables globales
+    'Declaración de variables globales
     Private encryp As New EncryptionMethods
+    Private exceptionMessage As New ExceptionMessage
+    Private key As String
 
     ''' <summary>
     ''' Función constructora
@@ -10,22 +15,41 @@
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        wrongMessage.Style.Add("display", "none")
 
         'Pregunta que si es la primera ves en entrar
         If Not IsPostBack Then
             Dim servicebrand As New BrandServiceReference.BrandServiceClient
-            'Dim temp As String = encryp.decrypting(servicebrand.getAllBrands(CType(Session("user"), String)), CType(Session("user"), String))
-            Dim temp As String = encryp.decrypting(servicebrand.getAllBrands("Temp"), "Temp")
-            Dim brand As Array = temp.Split("#")
+            Dim temp As String = ""
 
-            For Each brandT As String In brand
-                Dim currentBrand As Array
-                currentBrand = brandT.Split(";")
+            'Preguntamos si el mae está o no logueado
+            If Session.Item("user") Is Nothing Then
+                Me.key = "None"
+            Else
+                Me.key = CType(Session("user"), String)
+            End If
 
-                If (currentBrand(0).ToString.Length > 0) Then
-                    ddlBrand.Items.Add(currentBrand(1).ToString)
-                End If
-            Next
+            'Manejo de excepciones al momento de recibir todas las marcas
+            Try
+                temp = encryp.decrypting(servicebrand.getAllBrands(Me.key), Me.key)
+            Catch ex As Exception
+                lblWrongMessage.Text = Me.exceptionMessage.notConnectionWS
+                wrongMessage.Style.Add("display", "initial")
+            End Try
+
+            'Verificamos que temp no esté vacío
+            If (temp.Length > 0) Then
+                Dim brand As Array = temp.Split("#")
+
+                For Each brandT As String In brand
+                    Dim currentBrand As Array
+                    currentBrand = brandT.Split(";")
+
+                    If (currentBrand(0).ToString.Length > 0) Then
+                        ddlBrand.Items.Add(currentBrand(1).ToString)
+                    End If
+                Next
+            End If
         End If
     End Sub
     ''' <summary>
@@ -37,34 +61,58 @@
         Dim servicePhone As New PhoneServiceReference.PhoneServiceClient
         Dim cont As Integer = 1
         'Dim temp As String = servicePhone.getPhones(CType(Session("user"), String))
-        Dim temp As String = encryp.decrypting(servicePhone.getPhones("Temp"), "Temp")
-        Dim phones As Array = temp.Split("#")
+        Dim temp As String = ""
 
-        For Each phoneT As String In phones
-            Dim currentPhone As Array = phoneT.Split(";")
-            If (currentPhone(0).ToString.Length > 0) Then
-                If cont < 3 Then
-                    Response.Write(WritePhone("simpleCart_shelfItem",
-                                            currentPhone(2) + " " + currentPhone(1),
-                                            currentPhone(3), currentPhone(12),
-                                            currentPhone(10)))
-                Else
-                    Response.Write(WritePhone("last simpleCart_shelfItem",
-                                            currentPhone(2) + " " + currentPhone(1),
-                                            currentPhone(3), currentPhone(12),
-                                            currentPhone(10)))
-                    cont = 0
+        'Manejo de excepciones al momento de obtener todos los celulares
+        Try
+            temp = encryp.decrypting(servicePhone.getPhones(Me.key), Me.key)
+        Catch ex As Exception
+            lblWrongMessage.Text = Me.exceptionMessage.notConnectionWS
+            wrongMessage.Style.Add("display", "initial")
+        End Try
+
+        'Verificamos que temp no esté vacío
+        If (temp.Length > 0) Then
+            Dim phones As Array = temp.Split("#")
+
+            'Recorremos cada uno de los celulares que nos da el Web Service
+            For Each phoneT As String In phones
+                Dim currentPhone As Array = phoneT.Split(";")
+                If (currentPhone(0).ToString.Length > 0) Then
+                    If cont < 3 Then
+                        Response.Write(WritePhone("simpleCart_shelfItem",
+                                                currentPhone(2) + " " + currentPhone(1),
+                                                currentPhone(3), currentPhone(12),
+                                                currentPhone(10), currentPhone(0)))
+                    Else
+                        Response.Write(WritePhone("last simpleCart_shelfItem",
+                                                currentPhone(2) + " " + currentPhone(1),
+                                                currentPhone(3), currentPhone(12),
+                                                currentPhone(10), currentPhone(0)))
+                        cont = 0
+                    End If
+                    cont = cont + 1
                 End If
-                cont = cont + 1
-            End If
-        Next
+            Next
+        End If
     End Function
-
-    Public Function WritePhone(ccsClass As String, brandModel As String, os As String, urlImage As String, price As String) As String
+    ''' <summary>
+    ''' Función que se encarga de devolvernos varios elementos HTML, los cuales contienen el celular
+    ''' </summary>
+    ''' <param name="ccsClass">Corresponde a la clase CSS que se le desea aplicar</param>
+    ''' <param name="brandModel">Corresponde a la marca y modelo del celular</param>
+    ''' <param name="os">Corresponde al sistema operativo del celular</param>
+    ''' <param name="urlImage">Corresponde a la URL de la imágen del celular</param>
+    ''' <param name="price">Corresponde al precio del celular</param>
+    ''' <param name="id">Corresponde al ID del celular</param>
+    ''' <returns>
+    ''' Un String que se va aplicar como código HTML dentro de la página ASPX
+    ''' </returns>
+    Public Function WritePhone(ccsClass As String, brandModel As String, os As String, urlImage As String, price As String, id As String) As String
         Dim temp As String
 
         temp = "<li class='" + ccsClass + "'>
-                <a class='cbp-vm-image' href='single.html'>
+                <a class='cbp-vm-image' href='phoneInformation.aspx?id=" + id + "'>
                     <div class='view view-first'>
                         <div class='inner_content clearfix'>
                             <div class='product_image'>
