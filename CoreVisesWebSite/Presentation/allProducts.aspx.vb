@@ -17,6 +17,7 @@ Public Class allProducts
     ''' <param name="e"></param>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         wrongMessage.Style.Add("display", "none")
+        Dim flag As Boolean = True
 
         'Preguntamos si el mae está o no logueado
         If Session.Item("user") Is Nothing Then
@@ -37,37 +38,41 @@ Public Class allProducts
             Catch ex As Exception
                 lblWrongMessage.Text = Me.exceptionMessage.notConnectionWS
                 wrongMessage.Style.Add("display", "initial")
+                flag = False
             End Try
 
-            'Verificamos que temp no esté vacío
-            If (temp.Length > 0) Then
-                Dim brand As Array = temp.Split("#")
+            'Verificamos que no se haya caído
+            If flag Then
+                'Verificamos que temp no esté vacío
+                If (temp.Length > 0) Then
+                    Dim brand As Array = temp.Split("#")
 
-                For Each brandT As String In brand
-                    Dim currentBrand As Array
-                    currentBrand = brandT.Split(";")
+                    For Each brandT As String In brand
+                        Dim currentBrand As Array
+                        currentBrand = brandT.Split(";")
 
-                    If (currentBrand(0).ToString.Length > 0) Then
-                        ddlBrand.Items.Add(currentBrand(1).ToString)
-                    End If
-                Next
-            End If
+                        If (currentBrand(0).ToString.Length > 0) Then
+                            ddlBrand.Items.Add(currentBrand(1).ToString)
+                        End If
+                    Next
+                End If
 
-            'Verificamos si el cliente eligió un SO en el index
-            If (Request.QueryString("os") Is Nothing) Then
-                Me.updatePanelPhone()
-            Else
-                Select Case (Request.QueryString("os"))
-                    Case "Android"
-                        ddlOS.Items.FindByText("Android").Selected = True
-                    Case "iOS"
-                        ddlOS.Items.FindByText("iOS").Selected = True
-                    Case "Windows"
-                        ddlOS.Items.FindByText("Windows Phone").Selected = True
-                    Case Else
-                        ddlOS.Items.FindByText("Select").Selected = True
-                End Select
-                Me.updatePanelPhone()
+                'Verificamos si el cliente eligió un SO en el index
+                If (Request.QueryString("os") Is Nothing) Then
+                    Me.updatePanelPhone()
+                Else
+                    Select Case (Request.QueryString("os"))
+                        Case "Android"
+                            ddlOS.Items.FindByText("Android").Selected = True
+                        Case "iOS"
+                            ddlOS.Items.FindByText("iOS").Selected = True
+                        Case "Windows"
+                            ddlOS.Items.FindByText("Windows Phone").Selected = True
+                        Case Else
+                            ddlOS.Items.FindByText("Select").Selected = True
+                    End Select
+                    Me.updatePanelPhone()
+                End If
             End If
         End If
     End Sub
@@ -82,6 +87,7 @@ Public Class allProducts
         'Dim temp As String = servicePhone.getPhones(CType(Session("user"), String))
         Dim temp As String = ""
         Dim allPhone As String = ""
+        Dim flag As Boolean = True
 
         'Manejo de excepciones al momento de obtener todos los celulares
         Try
@@ -89,37 +95,43 @@ Public Class allProducts
         Catch ex As Exception
             lblWrongMessage.Text = Me.exceptionMessage.notConnectionWS
             wrongMessage.Style.Add("display", "initial")
+            flag = False
         End Try
 
-        'Verificamos que temp no esté vacío
-        If (temp.Length > 0) Then
-            Dim phones As Array = temp.Split("#")
+        'Verificamos que no se haya caído
+        If flag Then
+            'Verificamos que temp no esté vacío
+            If (temp.Length > 0) Then
+                Dim phones As Array = temp.Split("#")
 
-            'Recorremos cada uno de los celulares que nos da el Web Service
-            For Each phoneT As String In phones
-                Dim currentPhone As Array = phoneT.Split(";")
-                If (currentPhone(0).ToString.Length > 0) Then
+                'Recorremos cada uno de los celulares que nos da el Web Service
+                For Each phoneT As String In phones
+                    Dim currentPhone As Array = phoneT.Split(";")
+                    If (currentPhone(0).ToString.Length > 0) Then
 
-                    'Verificamos con las funcionalidades especificades por el cliente
-                    If (Me.filter(currentPhone)) Then
-                        If cont < 3 Then
-                            allPhone = allPhone & writePhone("simpleCart_shelfItem",
-                                                    currentPhone(2) + " " + currentPhone(1),
-                                                    currentPhone(3), currentPhone(12),
-                                                    currentPhone(10), currentPhone(0))
-                        Else
-                            allPhone = allPhone & writePhone("last simpleCart_shelfItem",
-                                                    currentPhone(2) + " " + currentPhone(1),
-                                                    currentPhone(3), currentPhone(12),
-                                                    currentPhone(10), currentPhone(0))
-                            cont = 0
+                        'Verificamos con las funcionalidades especificades por el cliente
+                        If (Me.filter(currentPhone)) Then
+                            If cont < 3 Then
+                                allPhone = allPhone & writePhone("simpleCart_shelfItem",
+                                                        currentPhone(2) + " " + currentPhone(1),
+                                                        currentPhone(3), currentPhone(12),
+                                                        currentPhone(10), currentPhone(0))
+                            Else
+                                allPhone = allPhone & writePhone("last simpleCart_shelfItem",
+                                                        currentPhone(2) + " " + currentPhone(1),
+                                                        currentPhone(3), currentPhone(12),
+                                                        currentPhone(10), currentPhone(0))
+                                cont = 0
+                            End If
+                            cont = cont + 1
                         End If
-                        cont = cont + 1
                     End If
-                End If
-            Next
+                Next
+            End If
+            Return allPhone
+        Else
+            Return "Nothing"
         End If
-        Return allPhone
     End Function
     ''' <summary>
     ''' Función que se encarga de devolvernos varios elementos HTML, los cuales contienen el celular
@@ -152,7 +164,6 @@ Public Class allProducts
                                     <p>" + os + "</p>
                                     <div class='price mount item_price'>₡" + FormatNumber(Double.Parse(price), 2).ToString + "</div>
                                     <div class='price mount item_price'>$" + Me.calculatePriceDollars(price) + "</div>
-                                    <a class='button item_add cbp-vm-icon cbp-vm-add' href='#'>Add to cart</a>
                                 </div>		
                             </div>
                         </div>

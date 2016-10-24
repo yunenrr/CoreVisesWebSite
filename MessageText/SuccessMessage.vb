@@ -17,4 +17,9 @@
         Me.message = "Successfully updated"
         Return Me.message
     End Function
+
+    Public Function successAdd() As String
+        Me.message = "It has been successful to cart!"
+        Return Me.message
+    End Function
 End Class

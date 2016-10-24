@@ -84,6 +84,11 @@
     <Import Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Service References\SalePhoneServiceReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="UnitTest1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -126,6 +131,13 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="Service References\SalePhoneServiceReference\SalePhoneService.wsdl" />
+    <None Include="Service References\SalePhoneServiceReference\SalePhoneService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalePhoneServiceReference\SalePhoneService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web References\cr.fi.bccr.indicadoreseconomicos\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
@@ -150,6 +162,30 @@
       <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Testing_cr_fi_bccr_indicadoreseconomicos_wsIndicadoresEconomicos</CachedSettingsPropName>
     </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SalePhoneServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SalePhoneServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SalePhoneServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SalePhoneServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoreVisesWebSite\CoreVisesWebSite.vbproj">
+      <Project>{3cc719c3-39b4-4a4a-9e9b-671bf6bfb4c5}</Project>
+      <Name>CoreVisesWebSite</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SalePhoneServiceReference\SalePhoneService.disco" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

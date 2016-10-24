@@ -1,14 +1,13 @@
 ﻿Public Class EncryptionMethods
-    ' Declaración de variables globales
     Private alphabet As String
+
     Private alphabetChar As Char()
 
-    ' Método constructor
     Public Sub New()
-        Me.alphabet = "abcdefghijklmnopqrstuvwxyz1234567890,.:;/@-_%!¿?$#[]{} "
+        Me.alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890,.:;/-_%!¿?$#[]{} "
         Me.alphabetChar = alphabet.ToCharArray()
     End Sub
-    ' Función que encripta
+
     Public Function encrypt(text As String, key As String) As String
         Dim newText As String = ""
 
@@ -34,7 +33,7 @@
 
         Return newText
     End Function
-    ' Función que desencripta
+
     Public Function decrypting(text As String, key As String) As String
         Dim newText As String = ""
 
@@ -60,12 +59,12 @@
 
         Return newText
     End Function
-    ' Función que busca la posición de las palabras en nuestro abecedario
+
     Private Function findLetter(letter As Char) As Integer
         Dim pos As Integer = 0
 
         For i As Integer = 0 To Me.alphabet.Length - 1
-            If Char.ToUpperInvariant(letter) = Char.ToUpperInvariant(alphabetChar(i)) Then
+            If letter = alphabetChar(i) Then
                 pos = i + 1
                 i = Me.alphabet.Length
             End If
@@ -73,4 +72,5 @@
 
         Return pos
     End Function
+
 End Class

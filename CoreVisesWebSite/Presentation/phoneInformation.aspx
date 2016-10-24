@@ -22,6 +22,7 @@
     <div class="men">
         <div class="container">
             <form id="phoneInformation" class="form-horizontal" runat="server">
+                <h2 style="cursor: pointer;"><asp:HyperLink ID="hlBack" NavigateUrl="~/Presentation/allProducts.aspx" runat="server"><i class="fa fa-arrow-left"></i> Back</asp:HyperLink></h2>
                 <!-- No seleccionó opción -->
                 <div id="dontSelect" runat="server">
                     <h2>Please select one phone</h2>
@@ -42,7 +43,7 @@
                                 <h1><asp:Label ID="lblModelBran" runat="server"></asp:Label></h1>
                                 <p class="availability">Availability: <span class="color">In stock</span></p>
                                 <div class="price_single">
-                                    <span class="item_price actual"><asp:Label ID="lblPriceDollar" runat="server"></span>
+                                    <span class="item_price actual"><asp:Label ID="lblPriceDollar" runat="server"></asp:Label></span>
                                     <span class="item_price actual"><asp:Label ID="lblPriceColon" runat="server"></asp:Label></span>
                                 </div>
                                 <h2 class="quick">OS: <asp:Label ID="lblOS" runat="server"></asp:Label></h2>
@@ -55,14 +56,14 @@
                                 <div class="quantity_box">
                                     <ul class="product-qty">
                                         <span>Quantity:</span>
-                                        <select>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
-                                        </select>
+                                        <asp:DropDownList ID="ddlQuantity" runat="server">
+                                            <asp:ListItem>1</asp:ListItem>
+                                            <asp:ListItem>2</asp:ListItem>
+                                            <asp:ListItem>3</asp:ListItem>
+                                            <asp:ListItem>4</asp:ListItem>
+                                            <asp:ListItem>5</asp:ListItem>
+                                            <asp:ListItem>6</asp:ListItem>
+                                        </asp:DropDownList>
                                     </ul>
                                     <ul class="single_social">
                                         <li><a href="#"><i class="fb1"> </i> </a></li>
@@ -72,12 +73,25 @@
 		   		                    </ul>
                                     <div class="clearfix"></div>
                                 </div><!--Fin del div quantity_box-->
-                                <a href="#" class="btn btn-primary btn-normal btn-inline btn_form button item_add item_1" target="_self">Add to cart</a>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <asp:Button ID="btnAddCart" CssClass="btn btn-primary"
+                                             runat="server" Text="Add to cart" OnClick="btnAddCart_Click" BackColor="#3276B1" />
+                                    </div>
+                                </div>
                                 <div id="wrongMessage" runat="server">
                                     <div class="form-group">
                                         <div class="alert alert-danger col-sm-offset-2" style="width:42%">
                                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                             <asp:Label ID="lblWrongMessage" runat="server"></asp:Label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="exitMessage" runat="server">
+                                    <div class="form-group">
+                                        <div class="alert alert-success col-sm-offset-2" style="width:42%">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <asp:Label ID="lblSuccessMessage" runat="server"></asp:Label>
                                         </div>
                                     </div>
                                 </div>

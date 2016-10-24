@@ -244,6 +244,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
+    <None Include="Service References\SalePhoneServiceReference\SalePhoneService.disco" />
+    <None Include="Service References\SalePhoneServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\SalePhoneServiceReference\configuration.svcinfo" />
+    <None Include="Service References\SalePhoneServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -355,6 +362,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\SalePhoneServiceReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Web References\cr.fi.bccr.indicadoreseconomicos\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -402,6 +414,13 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </Content>
+    <None Include="Service References\SalePhoneServiceReference\SalePhoneService.wsdl" />
+    <None Include="Service References\SalePhoneServiceReference\SalePhoneService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalePhoneServiceReference\SalePhoneService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web References\cr.fi.bccr.indicadoreseconomicos\wsIndicadoresEconomicos.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -417,6 +436,7 @@
     <WCFMetadataStorage Include="Service References\BrandServiceReference\" />
     <WCFMetadataStorage Include="Service References\ClientServiceReference\" />
     <WCFMetadataStorage Include="Service References\PhoneServiceReference\" />
+    <WCFMetadataStorage Include="Service References\SalePhoneServiceReference\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MessageText\MessageText.vbproj">

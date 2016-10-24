@@ -9,6 +9,7 @@ Public Class phoneInformation
     Private url As String
     Private key As String
     Private exceptionMessage As New ExceptionMessage
+    Private successMessage As New SuccessMessage
     Private priceDollar As Double
 
     ''' <summary>
@@ -20,6 +21,7 @@ Public Class phoneInformation
         wrongMessage.Style.Add("display", "none")
         dontSelect.Style.Add("display", "none")
         yesSelect.Style.Add("display", "none")
+        exitMessage.Style.Add("display", "none")
         Me.priceDollar = CType(Session("dollar"), Double)
 
         'Verificamos que el cliente haya seleccionado un ID válido
@@ -61,6 +63,9 @@ Public Class phoneInformation
                 Me.url = arrayPhone(12)
                 dontSelect.Style.Add("display", "none")
                 yesSelect.Style.Add("display", "initial")
+            Else
+                dontSelect.Style.Add("display", "initial")
+                yesSelect.Style.Add("display", "none")
             End If
         Else
             dontSelect.Style.Add("display", "initial")
@@ -92,4 +97,47 @@ Public Class phoneInformation
         Dim temp As Double = (priceC / Me.priceDollar)
         Return FormatNumber(temp, 2).ToString
     End Function
+    ''' <summary>
+    ''' Función que se ejecuta cuando se hace clic sobre el botón de agregar al carrito
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Protected Sub btnAddCart_Click(sender As Object, e As EventArgs)
+        Dim temp As String = CType(Session("phoneBuy"), String)
+
+        'Se verifica que temp no esté vacío
+        If (temp.Length > 0) Then
+            Dim returnTemp As String = ""
+            Dim arrayPhones As Array = temp.Split("#")
+            Dim flag As Boolean = True
+
+            'Se recorre por aquello de que ya el celular haya sido agregado
+            For Each phoneTemp As String In arrayPhones
+                Dim currentPhone As Array = phoneTemp.Split(";")
+
+                'Se valida que el campo no esté vacío
+                If (currentPhone(0).ToString.Length > 0) Then
+                    If (currentPhone(0) Like hfID.Value) Then
+                        flag = False
+                        currentPhone(1) = (Integer.Parse(currentPhone(1)) + Integer.Parse(ddlQuantity.SelectedItem.Value))
+
+                        returnTemp = String.Concat(returnTemp, ("#" + currentPhone(0) + ";" + currentPhone(1)))
+                    Else
+                        returnTemp = String.Concat(returnTemp, ("#" + currentPhone(0) + ";" + currentPhone(1)))
+                    End If
+                End If
+            Next
+
+            'Se verifica, si no estaba en la lista se agrega
+            If flag Then
+                returnTemp = String.Concat(returnTemp, ("#" + hfID.Value + ";" + ddlQuantity.SelectedItem.ToString()))
+            End If
+            temp = returnTemp
+        Else
+            temp = String.Concat(temp, ("#" + hfID.Value + ";" + ddlQuantity.SelectedItem.ToString()))
+        End If
+        Session.Item("phoneBuy") = temp
+        lblSuccessMessage.Text = Me.successMessage.successAdd
+        exitMessage.Style.Add("display", "initial")
+    End Sub
 End Class

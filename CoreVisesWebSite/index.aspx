@@ -32,13 +32,12 @@
                 <div class="header_top">
                     <div class="header_top_left">
                         <div class="box_11">
-                            <a href="checkout.html">
+                            <a href="Presentation/myShoppingBag.aspx">
                                 <h4>
-                                    <p>Cart: <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</p><img src="images/bag.png" alt=""/><div class="clearfix"> </div>
+                                    <p>Cart: </p><img src="images/bag.png" alt="" /><div class="clearfix"> </div>
                                 </h4>
                             </a>
                         </div> <!-- Fin del div que muestra el total del carrito -->
-                        <p class="empty"><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
                         <div class="clearfix"></div>
                     </div> <!-- DIV de todo el botón del carrito -->
                     <div class="header_top_right">

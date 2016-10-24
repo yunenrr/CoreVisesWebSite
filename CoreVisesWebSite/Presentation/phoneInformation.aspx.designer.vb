@@ -23,6 +23,15 @@ Partial Public Class phoneInformation
     Protected WithEvents phoneInformation As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
+    '''hlBack control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hlBack As Global.System.Web.UI.WebControls.HyperLink
+    
+    '''<summary>
     '''dontSelect control.
     '''</summary>
     '''<remarks>
@@ -140,6 +149,24 @@ Partial Public Class phoneInformation
     Protected WithEvents lblResolution As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''ddlQuantity control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlQuantity As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''btnAddCart control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnAddCart As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
     '''wrongMessage control.
     '''</summary>
     '''<remarks>
@@ -156,4 +183,22 @@ Partial Public Class phoneInformation
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblWrongMessage As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''exitMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents exitMessage As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''lblSuccessMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblSuccessMessage As Global.System.Web.UI.WebControls.Label
 End Class

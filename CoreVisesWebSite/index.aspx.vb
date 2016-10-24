@@ -11,6 +11,7 @@
             'Pregunta si la variable condición existe en la sesión
             If Session.Item("condition") Is Nothing Then
                 Session.Add("condition", 0)
+                Session.Add("phoneBuy", "")
                 Session.Add("dollar", Me.getDollar())
                 logInf.NavigateUrl = "~/Presentation/login.aspx"
                 logInf.Text = "Log In"
