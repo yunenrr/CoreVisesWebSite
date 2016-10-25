@@ -124,10 +124,10 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="404.html" />
     <Content Include="contact.html" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\component.css" />
+    <Content Include="js\EncryptionMethods.js" />
     <Content Include="css\flexslider.css" />
     <Content Include="css\font-awesome-4.6.3\css\font-awesome.css" />
     <Content Include="css\font-awesome-4.6.3\css\font-awesome.min.css" />
@@ -182,6 +182,7 @@
     <Content Include="Presentation\myShoppingBag.aspx" />
     <Content Include="Presentation\phoneInformation.aspx" />
     <Content Include="Presentation\register.aspx" />
+    <Content Include="Presentation\searchPhone.aspx" />
     <Content Include="Presentation\update.aspx" />
     <Content Include="Presentation\updatePassword.aspx" />
     <Content Include="Presentation\welcome.aspx" />
@@ -326,6 +327,13 @@
     <Compile Include="Presentation\Principal.Master.vb">
       <DependentUpon>Principal.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\searchPhone.aspx.designer.vb">
+      <DependentUpon>searchPhone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\searchPhone.aspx.vb">
+      <DependentUpon>searchPhone.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Presentation\update.aspx.designer.vb">
       <DependentUpon>update.aspx</DependentUpon>

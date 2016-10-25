@@ -51,9 +51,9 @@
                         <!-- start search-->
                         <div class="search-box">
                             <div id="sb-search" class="sb-search">
-					            <form>
-						            <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search" />
-						            <input class="sb-search-submit" type="submit" value="" />
+					            <form method="get" action="Presentation/login.aspx">
+						            <input class="sb-search-input" placeholder="Enter your search term..." type="search" value="" id="search" />
+						            <input class="sb-search-submit" type="submit"/>
 						            <span class="sb-icon-search"> </span>
 					            </form>
                             </div>

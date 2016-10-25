@@ -26,6 +26,13 @@ Public Class allProducts
             Me.key = CType(Session("user"), String)
         End If
 
+        'Preguntamos si tenemos el precio del dolar
+        If Session.Item("dollar") Is Nothing Then
+            Me.key = 500
+        Else
+            Me.key = CType(Session("dollar"), Double)
+        End If
+
         'Pregunta que si es la primera ves en entrar
         If Not IsPostBack Then
             Dim servicebrand As New BrandServiceReference.BrandServiceClient
