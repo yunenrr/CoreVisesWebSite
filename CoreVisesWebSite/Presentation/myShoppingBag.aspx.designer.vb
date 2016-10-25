@@ -50,15 +50,6 @@ Partial Public Class myShoppingBag
     Protected WithEvents lblAmount As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''phoneToDelete control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents phoneToDelete As Global.System.Web.UI.WebControls.HiddenField
-    
-    '''<summary>
     '''tableBody control.
     '''</summary>
     '''<remarks>
@@ -111,6 +102,24 @@ Partial Public Class myShoppingBag
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblWrongMessage As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''exitMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents exitMessage As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''lblSuccessMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblSuccessMessage As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''UpdateProgress1 control.

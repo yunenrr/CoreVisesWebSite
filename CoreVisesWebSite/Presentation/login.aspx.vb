@@ -16,6 +16,8 @@ Public Class login
         wrongMessage.Style.Add("display", "none")
         If Not (Request.QueryString("exit") Is Nothing) Then
             Session.Item("condition") = 0
+            Session.Item("user") = ""
+            Session.Item("phoneBuy") = ""
             Response.Redirect("../index.aspx", True)
         End If
     End Sub

@@ -24,7 +24,7 @@ Imports CoreVisesWebSite.EncryptionMethods
         Dim encrip As New CoreVisesWebSite.EncryptionMethods
         Dim venta As New SalePhoneServiceReference.SalePhoneServiceClient
         Dim id = encrip.encrypt("26", "YARR")
-        Dim phoneArray As String = "#19;2#20;3"
+        Dim phoneArray As String = "19;2#20;3"
         Dim tempArray = encrip.encrypt(phoneArray, "YARR")
         Dim amount = encrip.encrypt("20000", "YARR")
 

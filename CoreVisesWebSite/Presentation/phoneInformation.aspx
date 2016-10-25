@@ -76,7 +76,7 @@
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <asp:Button ID="btnAddCart" CssClass="btn btn-primary"
-                                             runat="server" Text="Add to cart" OnClick="btnAddCart_Click" BackColor="#3276B1" />
+                                                runat="server" Text="Add to cart" OnClick="btnAddCart_Click" BackColor="#3276B1" />
                                     </div>
                                 </div>
                                 <div id="wrongMessage" runat="server">

@@ -18,9 +18,9 @@ Public Class phoneInformation
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        wrongMessage.Style.Add("display", "none")
         dontSelect.Style.Add("display", "none")
         yesSelect.Style.Add("display", "none")
+        wrongMessage.Style.Add("display", "none")
         exitMessage.Style.Add("display", "none")
         Me.priceDollar = CType(Session("dollar"), Double)
 
@@ -110,6 +110,7 @@ Public Class phoneInformation
             Dim returnTemp As String = ""
             Dim arrayPhones As Array = temp.Split("#")
             Dim flag As Boolean = True
+            Dim cont As Integer = 1
 
             'Se recorre por aquello de que ya el celular haya sido agregado
             For Each phoneTemp As String In arrayPhones
@@ -117,14 +118,20 @@ Public Class phoneInformation
 
                 'Se valida que el campo no esté vacío
                 If (currentPhone(0).ToString.Length > 0) Then
+                    'Se pregunta si es igual al actual
                     If (currentPhone(0) Like hfID.Value) Then
                         flag = False
                         currentPhone(1) = (Integer.Parse(currentPhone(1)) + Integer.Parse(ddlQuantity.SelectedItem.Value))
+                    End If
 
-                        returnTemp = String.Concat(returnTemp, ("#" + currentPhone(0) + ";" + currentPhone(1)))
+                    'Se pregunta si es el primer valor
+                    If (cont = 1) Then
+                        returnTemp = String.Concat(returnTemp, (currentPhone(0) + ";" + currentPhone(1)))
                     Else
                         returnTemp = String.Concat(returnTemp, ("#" + currentPhone(0) + ";" + currentPhone(1)))
                     End If
+
+                    cont = (cont + 1)
                 End If
             Next
 
@@ -134,7 +141,7 @@ Public Class phoneInformation
             End If
             temp = returnTemp
         Else
-            temp = String.Concat(temp, ("#" + hfID.Value + ";" + ddlQuantity.SelectedItem.ToString()))
+            temp = String.Concat(temp, (hfID.Value + ";" + ddlQuantity.SelectedItem.ToString()))
         End If
         Session.Item("phoneBuy") = temp
         lblSuccessMessage.Text = Me.successMessage.successAdd

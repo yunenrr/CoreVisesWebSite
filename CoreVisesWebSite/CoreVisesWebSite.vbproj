@@ -139,6 +139,7 @@
     <Content Include="images\arrow2.gif" />
     <Content Include="images\bag.png" />
     <Content Include="images\close_1.png" />
+    <Content Include="images\delete.png" />
     <Content Include="images\g-star-raw.jpg" />
     <Content Include="images\grid_view.png" />
     <Content Include="images\img-sprite.png" />

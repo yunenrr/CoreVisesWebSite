@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Head" runat="server">
     <link rel="stylesheet" href="../css/font-awesome-4.6.3/css/font-awesome.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.2.min.js" type="text/javascript"></script>
+    <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PrincipalBoard" runat="server">
     <div class="account-in">
@@ -14,7 +14,6 @@
                         <ContentTemplate>
                             <div class="col-md-9 cart-items">
                                 <h1>My Shopping Bag (<asp:Label ID="lblAmount" runat="server"></asp:Label>)</h1>
-                                <asp:HiddenField ID="phoneToDelete" ClientIDMode="Static" OnValueChanged="phoneToDelete_ValueChanged" runat="server" />
                                 <div class="cart-header">
                                     <table class="table">
                                         <thead>
@@ -44,15 +43,24 @@
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <asp:Button ID="btnPay" runat="server" 
                                             CssClass="btn btn-default" Width="100%" BackColor="#F9D9BE" 
-                                            Text="Pay" OnClick="btnPay_Click"/>
+                                            Text="Pay" OnClick="btnPay_Click" ClientIDMode="Static"/>
                                     </div>
                                 </div>
+                                <div class="clearfix"></div>
                                 <!-- Mensajes de error -->
                                 <div id="wrongMessage" runat="server">
                                     <div class="form-group">
                                         <div class="alert alert-danger col-sm-offset-2" style="width:42%">
                                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                             <asp:Label ID="lblWrongMessage" runat="server"></asp:Label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="exitMessage" runat="server">
+                                    <div class="form-group">
+                                        <div class="alert alert-success col-sm-offset-2" style="width:42%">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <asp:Label ID="lblSuccessMessage" runat="server"></asp:Label>
                                         </div>
                                     </div>
                                 </div>
@@ -78,7 +86,7 @@
     <script type="text/javascript" >
         function removePhone(phone)
         {
-            result = confirm("Are you sure you want to remove?");
+            result = confirm("Are you sure you want to remove?" + phone);
 
             if (result ==  true)
             {
