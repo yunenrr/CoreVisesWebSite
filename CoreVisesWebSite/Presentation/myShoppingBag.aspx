@@ -13,7 +13,7 @@
                         EnablePartialRendering="true" runat="server"></asp:ScriptManager>
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
-                            <asp:HiddenField ID="phoneToDelete" ClientIDMode="Static" runat="server" />
+                            <%--<asp:HiddenField ID="phoneToDelete" ClientIDMode="Static" runat="server" />--%>
                             <div class="col-md-9 cart-items">
                                 <h1>My Shopping Bag (<asp:Label ID="lblAmount" runat="server"></asp:Label>)</h1>
                                 <div class="cart-header">
@@ -45,7 +45,7 @@
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <asp:Button ID="btnPay" runat="server" 
                                             CssClass="btn btn-default" Width="100%" BackColor="#F9D9BE" 
-                                            Text="Pay" OnClick="btnPay_Click" ClientIDMode="Static"/>
+                                            Text="Pay" OnClick="btnPay_Click"/>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
@@ -88,8 +88,8 @@
     <script type="text/javascript">
         function removePhone(phone)
         {
-            document.getElementById('phoneToDelete').value = phone;
-            PageMethods.filterPhone();
+            PageMethods.filterPhone(phone);
+            location.reload(true);
         }//Fin de la función
     </script>
 </asp:Content>

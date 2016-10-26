@@ -87,18 +87,18 @@ Public Class myShoppingBag
     ''' Función que se encarga de filtrar la lista de teléfonos
     ''' </summary>
     ''' <returns></returns>
-    <WebMethod>
-    Public Function filterPhone()
-        Dim temp As String = Me.phoneToDelete.Value.ToString
+    <WebMethod(EnableSession:=True)>
+    Public Shared Function filterPhone(temp As String)
+        Dim listCartd As String = CType(HttpContext.Current.Session("phoneBuy"), String)
         Dim returnTemp As String = ""
         Dim cont As Integer = 1
-        MsgBox("Entró")
+
         'Se verifica que el hidden field no esté vacío
         If (temp.Length > 0) Then
             'Se verifica que temp no esté vacío
-            If (Me.listCartd.Length > 0) Then
+            If (listCartd.Length > 0) Then
                 'Obtenemos un arreglo de ID de celulares y Cantidades
-                Dim arrayPhones As Array = Me.listCartd.Split("#")
+                Dim arrayPhones As Array = listCartd.Split("#")
 
                 'Recorremos el arreglo de ID de celulares y Cantidades
                 For Each phoneTemp As String In arrayPhones
@@ -107,7 +107,7 @@ Public Class myShoppingBag
                     'Se valida que el campo no esté vacío
                     If (currentPhone(0).ToString.Length > 0) Then
                         'Se pregunta si el código actual es igual de hidden field
-                        If Not (currentPhone(0) Like Me.phoneToDelete.Value) Then
+                        If Not (currentPhone(0) Like temp) Then
                             If (cont = 1) Then
                                 returnTemp = String.Concat(returnTemp, (currentPhone(0) + ";" + currentPhone(1)))
                             Else
@@ -117,13 +117,9 @@ Public Class myShoppingBag
                         cont = (cont + 1)
                     End If
                 Next
-                Me.listCartd = returnTemp
-                Session.Item("phoneBuy") = returnTemp
+                HttpContext.Current.Session.Item("phoneBuy") = returnTemp
             End If
         End If
-        Me.phoneToDelete.Value = ""
-        Me.writeHTML()
-        ClientScript.GetPostBackEventReference(UpdatePanel1, "")
     End Function
     ''' <summary>
     ''' Función que se encarga de mandar código HTML, específicamente TR
@@ -223,9 +219,5 @@ Public Class myShoppingBag
         Dim priceC As Double = Double.Parse(priceCollons)
         Dim temp As Double = (priceC / Me.priceDollar)
         Return FormatNumber(temp, 2).ToString
-    End Function
-
-    Public Function saludito(hola As String)
-        MsgBox("Hola " + hola + "!!!")
     End Function
 End Class
