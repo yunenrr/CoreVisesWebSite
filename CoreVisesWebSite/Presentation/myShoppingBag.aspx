@@ -9,9 +9,11 @@
         <div class="container">
             <div class="check_box">
                 <form id="login_Client" runat="server">
-                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <asp:ScriptManager ID="ScriptManager1" EnablePageMethods="true" 
+                        EnablePartialRendering="true" runat="server"></asp:ScriptManager>
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
+                            <asp:HiddenField ID="phoneToDelete" ClientIDMode="Static" runat="server" />
                             <div class="col-md-9 cart-items">
                                 <h1>My Shopping Bag (<asp:Label ID="lblAmount" runat="server"></asp:Label>)</h1>
                                 <div class="cart-header">
@@ -83,15 +85,11 @@
             </div><!-- Fin del div check_box-->
         </div> <!-- Fin del div container-->
     </div><!-- Fin del div account-in-->
-    <script type="text/javascript" >
+    <script type="text/javascript">
         function removePhone(phone)
         {
-            result = confirm("Are you sure you want to remove?" + phone);
-
-            if (result ==  true)
-            {
-                document.getElementById('phoneToDelete').nodeValue = phone
-            }
-        }
+            document.getElementById('phoneToDelete').value = phone;
+            PageMethods.filterPhone();
+        }//Fin de la función
     </script>
 </asp:Content>

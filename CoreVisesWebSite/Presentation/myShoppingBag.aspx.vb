@@ -1,5 +1,6 @@
 ﻿'Importaciones necesarias
 Imports MessageText
+Imports System.Web.Services
 
 Public Class myShoppingBag
     Inherits System.Web.UI.Page
@@ -52,7 +53,6 @@ Public Class myShoppingBag
         lblTotalColon.Text = FormatNumber(Me.totalColons, 2).ToString
         lblTotalDollar.Text = FormatNumber(Me.totalDollar, 2).ToString
     End Function
-
     ''' <summary>
     ''' Función que nos retornar código HTML, que contiene todos los tr de la tabla
     ''' </summary>
@@ -61,11 +61,6 @@ Public Class myShoppingBag
     ''' </returns>
     Private Function getTextHTML() As String
         Dim allPhoneList As String = ""
-
-        ''Se verifica que no se haya seleccionado eliminar algún teléfono
-        'If (Me.phoneToDelete.Value.ToString.Length > 0) Then
-        '    Me.filterPhone()
-        'End If
 
         'Se verifica que temp no esté vacío
         If (Me.listCartd.Length > 0) Then
@@ -88,38 +83,48 @@ Public Class myShoppingBag
         End If
         Return allPhoneList
     End Function
-    '''' <summary>
-    '''' Función que se encarga de filtrar la lista de teléfonos
-    '''' </summary>
-    '''' <returns></returns>
-    'Private Function filterPhone()
-    '    Dim temp As String = Me.phoneToDelete.Value.ToString
-    '    Dim returnTemp As String = ""
+    ''' <summary>
+    ''' Función que se encarga de filtrar la lista de teléfonos
+    ''' </summary>
+    ''' <returns></returns>
+    <WebMethod>
+    Public Function filterPhone()
+        Dim temp As String = Me.phoneToDelete.Value.ToString
+        Dim returnTemp As String = ""
+        Dim cont As Integer = 1
+        MsgBox("Entró")
+        'Se verifica que el hidden field no esté vacío
+        If (temp.Length > 0) Then
+            'Se verifica que temp no esté vacío
+            If (Me.listCartd.Length > 0) Then
+                'Obtenemos un arreglo de ID de celulares y Cantidades
+                Dim arrayPhones As Array = Me.listCartd.Split("#")
 
-    '    'Se verifica que el hidden field no esté vacío
-    '    If (temp.Length > 0) Then
-    '        'Se verifica que temp no esté vacío
-    '        If (Me.listCartd.Length > 0) Then
-    '            'Obtenemos un arreglo de ID de celulares y Cantidades
-    '            Dim arrayPhones As Array = Me.listCartd.Split("#")
+                'Recorremos el arreglo de ID de celulares y Cantidades
+                For Each phoneTemp As String In arrayPhones
+                    Dim currentPhone As Array = phoneTemp.Split(";")
 
-    '            'Recorremos el arreglo de ID de celulares y Cantidades
-    '            For Each phoneTemp As String In arrayPhones
-    '                Dim currentPhone As Array = phoneTemp.Split(";")
-
-    '                'Se valida que el campo no esté vacío
-    '                If (currentPhone(0).ToString.Length > 0) Then
-    '                    'Se pregunta si el código actual es igual de hidden field
-    '                    If Not (currentPhone(0) Like Me.phoneToDelete.Value) Then
-    '                        returnTemp = String.Concat(returnTemp, ("#" + currentPhone(0) + ";" + currentPhone(1)))
-    '                    End If
-    '                End If
-    '            Next
-    '            Me.listCartd = returnTemp
-    '        End If
-    '    End If
-    '    Me.phoneToDelete.Value = ""
-    'End Function
+                    'Se valida que el campo no esté vacío
+                    If (currentPhone(0).ToString.Length > 0) Then
+                        'Se pregunta si el código actual es igual de hidden field
+                        If Not (currentPhone(0) Like Me.phoneToDelete.Value) Then
+                            If (cont = 1) Then
+                                returnTemp = String.Concat(returnTemp, (currentPhone(0) + ";" + currentPhone(1)))
+                            Else
+                                returnTemp = String.Concat(returnTemp, ("#" + currentPhone(0) + ";" + currentPhone(1)))
+                            End If
+                        End If
+                        cont = (cont + 1)
+                    End If
+                Next
+                Me.listCartd = returnTemp
+                Session.Item("phoneBuy") = returnTemp
+            End If
+        End If
+        Me.phoneToDelete.Value = ""
+        Me.writeHTML()
+        ClientScript.GetPostBackEventReference(UpdatePanel1, "")
+    End Function
     ''' <summary>
     ''' Función que se encarga de mandar código HTML, específicamente TR
     ''' </summary>
@@ -134,18 +139,6 @@ Public Class myShoppingBag
         Dim temp As String
         Me.totalColons = Me.totalColons + (Double.Parse(price) * Integer.Parse(quantity))
         Me.totalDollar = Me.totalDollar + ((Double.Parse(Me.calculatePriceDollars(price))) * Integer.Parse(quantity))
-
-        'temp =
-        '    "
-        '        <tr>
-        '            <td>" + name + "</td>
-        '            <td>" + quantity + "</td>
-        '            <td>$" + Me.calculatePriceDollars(price) + "</td>
-        '            <td>₡" + FormatNumber(Double.Parse(price), 2).ToString + "</td>
-        '            <td><input id='btn" + id + "' type='button' value='Remove' onclick='removePhone(" + id + ")'/></td>
-        '        </tr>
-        '    "
-
         temp =
             "
                 <tr>
@@ -230,5 +223,9 @@ Public Class myShoppingBag
         Dim priceC As Double = Double.Parse(priceCollons)
         Dim temp As Double = (priceC / Me.priceDollar)
         Return FormatNumber(temp, 2).ToString
+    End Function
+
+    Public Function saludito(hola As String)
+        MsgBox("Hola " + hola + "!!!")
     End Function
 End Class

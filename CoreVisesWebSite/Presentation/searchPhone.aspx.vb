@@ -13,9 +13,9 @@
 
         'Preguntamos si tenemos el precio del dolar
         If Session.Item("dollar") Is Nothing Then
-            Me.key = 500
+            Me.priceDollar = 500
         Else
-            Me.key = CType(Session("dollar"), Double)
+            Me.priceDollar = CType(Session("dollar"), Double)
         End If
     End Sub
 End Class

@@ -51,18 +51,12 @@
                         <!-- start search-->
                         <div class="search-box">
                             <div id="sb-search" class="sb-search">
-					            <form method="get" action="Presentation/login.aspx">
-						            <input class="sb-search-input" placeholder="Enter your search term..." type="search" value="" id="search" />
-						            <input class="sb-search-submit" type="submit"/>
-						            <span class="sb-icon-search"> </span>
+					            <form>
+						            <input class="sb-search-submit" type="button"/>
+						            <span class="sb-icon-search" id="btnSearch"> </span>
 					            </form>
                             </div>
                         </div>
-				        <!----search-scripts---->
-                        <script src="js/classie1.js"></script>
-				        <script src="js/uisearch.js"></script>
-				        <script> new UISearch( document.getElementById( 'sb-search' ) );</script>
-					    <!----//search-scripts---->
 		                <div class="clearfix"> </div>
                     </div> <!-- Fin del header derecho -->
                     <div class="clearfix"> </div>
@@ -151,5 +145,21 @@
                     </div>
                 </div>
             </div>
+
+            <script type="text/javascript">
+                $(document).ready
+                (
+                    function ()
+                    {
+                        $("#btnSearch").click
+                        (
+                            function ()
+                            {
+                                window.location.replace("./Presentation/searchPhone.aspx");
+                            }//Función del evento
+                        );//Código que se ejecuta cuando se hace clic
+                    }//Fin de la función principal
+                );
+            </script>
         </body>
 </html>

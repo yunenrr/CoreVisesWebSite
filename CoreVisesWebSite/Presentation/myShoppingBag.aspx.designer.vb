@@ -41,6 +41,15 @@ Partial Public Class myShoppingBag
     Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
     
     '''<summary>
+    '''phoneToDelete control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents phoneToDelete As Global.System.Web.UI.WebControls.HiddenField
+    
+    '''<summary>
     '''lblAmount control.
     '''</summary>
     '''<remarks>
